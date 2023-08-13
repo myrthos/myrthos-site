@@ -1,10 +1,11 @@
 # toml-docs-start main
 [main]
     separator = "-"
-    description = "Hinode is a clean documentation and blog theme for your Hugo site based on Bootstrap 5."
+    description = "Myrthos is a site creating blogs and projects about electronics, software development and photography."
     enableDarkMode = true
     modes = ["light", "dark"]
     canonifyAssetsURLs = false
+    endorse = true
     [main.externalLinks]
         cue = true
         tab = true
@@ -31,8 +32,8 @@
 # toml-docs-start docs
 [docs]
     contentPath ="/docs/"
-    #github = "https://github.com/gethinode/hinode"
-    release = "https://github.com/gethinode/hinode/releases/tag/"
+    github = "https://github.com/myrthos/myrthos-site"
+    release = "https://github.com/myrthos/myrthos-site/releases/tag/"
     checkVersion = false
     hideReleases = true    # Hide the releases drop down when true
     hideGitInfo = true     # Hide git information at the bottom of a docs page when true
@@ -47,15 +48,22 @@
     url = "/docs/xproject"
 # toml-docs-end docs
 
+[multipage]
+    # These parameters are only valid when the layout of a page is set to "multipage"
+    paginator = "buttons"    # The paginator to show at the bottom of the page. Valid options are: 
+                            # "arrows"   Shows arrows to the left/right if there is a next/previous page
+                            # "buttons"  Shows navigation buttons (centered)
+                            # "list"     Shows a list of available pages
+                            # "dropdown" Shows a drop-down box and the available pages (centered) 
+                            # "dropup"   Shows a drop-up box and the available pages (centered) 
+    tooltips = "on"         # When paginator="buttons", enables ("on") or disables ("off") the display of tooltips 
+                            #  when hovering over the buttons. Not used in the other paginator options.
+    positions = 4           # When paginator="buttons", Sets the maximum number of button positions.
+                            # Not used in the other paginator options.
+
 # toml-docs-start home
 [home]
     sections = ["blog", "projects", "gallery"]
-    featurePhoto = "/img/electronics.jpg" 
-    photoCredits = "<a href=\"https://unsplash.com/@alexkixa\" target=\"_blank\">Alexandre Debiève</a> @ <a href=\"https://unsplash.com/photos/FO7JIlwjOtU\" target=\"_blank\">Unsplash</a>"
-    title = "Electronics close-up image"
-    fullCover = false
-    centerHeadline = false
-    style = ""
 # toml-docs-end home
 
 # toml-docs-start navigation
@@ -157,12 +165,13 @@
         style = "border-1 card-emphasize"
         homepage = 3
         separator = false
+        multipage = true        # Used for multi-page sections
     [sections.gallery]
         title = "Gallery"
         layout = "card"
-        sort = "title"
-        reverse = false 
-        nested = true
+        sort = "date"
+        reverse = true 
+        nested = false
         background = ""
         color = ""
         style = "border-0 card-zoom"
@@ -188,7 +197,7 @@
         footer = "tags"     # Footer of card: “full”, “publication”, “tags”, and “none” (default).
         orientation = "stacked" # Thumbnail: “stacked” (default), “horizontal”, or “none”
         homepage = 3        # Number of cards to display
-        separator = true    # Show separator line between items, or not          
+        separator = true    # Show separator line between items, or not                  
 # toml-docs-end sections
 
 [favicon]
@@ -215,6 +224,8 @@
     dark = "#212529"        # Eerie Black
 # toml-docs-end theme-colors
     themeOpacity = "10"
+    darkModeShade = "20%"
+    darkModeTint = "40%"
 # toml-docs-start font
     themeFont = "asap"
     # themeFontPath = "https://fonts.googleapis.com/css2?family=Inter:wght@200;300;600&display=swap" # external path
@@ -258,11 +269,4 @@
     theme = "" 
 
 [links]
-    bs_badge_heading = "https://getbootstrap.com/docs/5.2/components/badge/#headings"
-    hinode_docs = "https://gethinode.com/docs"
-    hugo_imaging = "https://gohugo.io/content-management/image-processing/#imaging-configuration"
-    mozilla_image = "https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images"
-    observatory = "https://observatory.mozilla.org/analyze/demo.gethinode.com"
-    pagespeed = "https://pagespeed.web.dev/report?url=https%3A%2F%2Fdemo.gethinode.com%2F"
-    utterances = "https://utteranc.es"
- 
+    hinode = "https://gethinode.com"

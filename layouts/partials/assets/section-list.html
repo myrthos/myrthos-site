@@ -24,7 +24,7 @@
 {{- $padding := "0" -}}
 {{- $header := "full" -}}
 {{- $footer := "none" -}}
-{{- $style := "" -}}
+{{- $style := "border-0 card-zoom" -}}
 {{- $homepage := 3 -}}
 {{- $background := "" -}}
 {{- $layout := "card" -}}
@@ -32,6 +32,7 @@
 {{- $type := "pills" -}}
 {{- $vertical := "false" -}}
 {{- $width := 100 -}}
+{{- $multipage := false -}}
 
 {{- with (index site.Params.sections $section) -}}
     {{- with index . "title" }}{{ $title = or $.title . }}{{ end -}}
@@ -54,6 +55,7 @@
     {{- with index . "type" }}{{ $type = . }}{{ end -}}
     {{- with index . "vertical" }}{{ $vertical = . }}{{ end -}}
     {{- with index . "width" }}{{ $width = . }}{{ end -}}
+    {{- if index . "multipage" }}{{ $multipage = true }}{{ $nested = false }}{{ end -}}
 {{- end -}}
 {{ if ne (printf "%T" $nested) "bool" }}
     {{ errorf "partial [assets/section-list.html] - Invalid value for param 'nested'"}}
@@ -64,9 +66,17 @@
     {{ $list = where site.RegularPages "Type" "in" $section }}
 {{ else if $home }}
     {{ $sectionPage := site.GetPage "section" $section }}
-    {{ $list = $sectionPage.RegularPages }}
+    {{ if $multipage }}
+        {{ $list = $sectionPage.Pages }}
+    {{ else }}
+        {{ $list = $sectionPage.RegularPages }}
+    {{ end }}
 {{ else }}
-    {{ $list = $page.RegularPages }}
+    {{ if $multipage }}
+        {{ $list = $page.Pages }}
+    {{ else }}
+        {{ $list = $page.RegularPages }}
+    {{ end }}
 {{ end }}
 
 {{ $max := (len $list) -}}
@@ -87,7 +97,6 @@
         {{- $paginate = false -}}
         {{- $max = int (math.Min $homepage $max) -}}
     {{ end -}}
-    {{- $cols = int (math.Min $cols $max) -}}
 
     {{- $params := (dict 
         "page" $page
