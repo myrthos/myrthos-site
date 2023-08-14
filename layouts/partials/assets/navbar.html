@@ -226,7 +226,7 @@
     
             <!-- Insert main navigation toggler -->
             <div class="d-flex fw-30">
-                <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#{{ $id }}"
+                <button class="navbar-toggler main-nav-toggler collapsed p-0" type="button" data-bs-toggle="collapse" data-bs-target="#{{ $id }}-collapse"
                     aria-controls="{{ $id }}" aria-expanded="false" aria-label="{{ T "toggleMainNav" }}">
                     <span class="toggler-icon top-bar emphasis{{ with $theme }}-{{ . }}{{ end }}"></span>
                     <span class="toggler-icon middle-bar emphasis{{ with $theme }}-{{ . }}{{ end }}"></span>
@@ -234,10 +234,7 @@
                 </button>
             </div>
     
-            <div class="navbar-collapse collapse" id="{{ $id }}">
-                <!-- Insert search input -->
-                {{- if $search }}{{ partial "assets/search-input.html" -}}{{ end -}}
-                
+            <div class="navbar-collapse collapse" id="{{ $id }}-collapse">               
                 <!-- Render top-menu items (maximum depth of 2) -->
                 <ul class="navbar-nav ms-auto">
                     <!-- Insert search input -->
