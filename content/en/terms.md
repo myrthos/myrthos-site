@@ -1,10 +1,8 @@
-<!-- CSpell:ignore Markus Winkler -->
-<!-- markdownlint-disable MD003 MD018 MD022 MD041-->
 ---
 title: Terms of Service
 description: Here are the terms of service for this site
 date: 2023-07-25
-#updated: 2023-02-11
+lastmod: 2023-08-15
 showComments: false
 thumbnail:
     url: /img/terms.jpg
@@ -13,7 +11,7 @@ thumbnail:
     origin: Unsplash
     originURL: https://unsplash.com/photos/TtJ0CLjLi6w
 ---
-<!-- markdownlint-enable MD018 MD022 MD041-->
+<!-- CSpell:ignore Markus Winkler lastmod -->
   
 ## Introduction
 

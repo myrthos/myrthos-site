@@ -1,10 +1,8 @@
-<!-- cSpell:ignore Joost Hinode googleanalytics Katex frontmatter catmull opengraph gelicenseerd onder sociale borderless subdir shortcode hugolib errorf shortcodes lastmod Alexandre Debiève mimage lightbox mgallery webp navgrey navshort -->
-<!-- markdownlint-disable MD003 MD022 MD041 -->
 ---
 author: Joost Mans
 title: Hinode changes
 date: 2023-07-21T13:41:48.543Z
-lastmod: 2023-08-13
+lastmod: 2023-08-15
 description: An overview of the changes to the Hinode template that were made for this site
 tags: ["blog", "Hinode"]
 thumbnail:
@@ -14,15 +12,15 @@ thumbnail:
     origin: Unsplash
     originURL: https://unsplash.com/photos/gJUZjwy2EgE
 ---
-<!-- markdownlint-enable MD022 MD041 -->
+<!-- cSpell:ignore Joost Hinode googleanalytics Katex frontmatter catmull opengraph gelicenseerd onder sociale borderless subdir shortcode hugolib errorf shortcodes lastmod Alexandre Debiève mimage lightbox mgallery webp navgrey navshort goatcounter publishdate pubdate -->
 
 The foundation of this site is {{< link "https://github.com/gethinode/hinode" >}}Hinode{{< /link >}}. This post provides an overview of the changes that were made to the Hinode theme, to get to the current design of this site. Obviously the information in this blog is very specific for this site, but if there is something of interest with respect to the layout on this site, it should be described here.
 
 Note that the following changes are described elsewhere:
 
-- A sharing button for [Mastodon](/blog/mastodon).
-- A shortcode for the [gallery](/blog/mgallery).
-- A shortcode for a different way of displaying [images](/blog/mimage).
+- A sharing button for {{< link "/blog/mastodon" >}}Mastodon{{< /link >}}.
+- A shortcode for the {{< link "/blog/mgallery" >}}gallery{{< /link >}}.
+- A shortcode for a different way of displaying {{< link "/blog/mimage" >}}images{{< /link >}}.
 
 ## Basic modifications to the configuration files
 
@@ -49,13 +47,13 @@ These are the modifications to the Content Security Policy (CSP) elements in `co
 ```toml
     Content-Security-Policy = """\
         default-src 'none'; \
-        script-src 'self' 'report-sample' https://utteranc.es/client.js; \
+        script-src 'self' 'report-sample' https://utteranc.es/client.js http://gc.zgo.at/count.js; \
         style-src 'self' 'unsafe-hashes' 'report-sample' https://utteranc.es https://www.youtube.com \
             'sha256-kFAIUwypIt04FgLyVU63Lcmp2AQimPh/TdYjy04Flxs=' 'sha256-XzJlZKVo+ff9ozww9Sr2p/2TbJXITZuaWMZ9p53zN1U=' \
             'sha256-hqhQ1AAR6jgr9lel8hs9sNOeqSwsGx6HH+B7TkLcmyY=' 'sha256-9HupEqQsOKAA3TMVtaZh8USULhFpwYGuWFk+44sVSgg=';\
         object-src 'none'; \
         base-uri 'self'; \
-        connect-src 'self'; \
+        connect-src 'self' https://myrthos.goatcounter.com/count; \
         font-src 'self'; \
         frame-src 'self' https://utteranc.es https://www.youtube-nocookie.com https://www.youtube.com; \
         frame-ancestors 'none'; \
@@ -65,6 +63,8 @@ These are the modifications to the Content Security Policy (CSP) elements in `co
         form-action 'self'; \
         """
 ```
+
+And when using Netlify also to `netlify.toml`.
 
 The hashes in the above are for the support of Goat and Utterances.
 
@@ -525,7 +525,7 @@ to:
 {{ partial "assets/button.html" (dict "toast" $target "clipboard" $clipboard "href" $url "tooltip" $item.name "icon" (printf "%s fa-fw" $item.icon) "class" "btn-social p-0" )}}
 ```
 
-I also wanted to add Mastodon as a sharing button, but that requires a bit more changes and because of that I've made a [separate blog post](/blog/mastodon) for that.
+I also wanted to add Mastodon as a sharing button, but that requires a bit more changes and because of that I've made a {{< link "/blog/mastodon" >}}separate blog post{{< /link >}} for that.
 
 ## External links to a new tab
 
@@ -608,7 +608,7 @@ content/en
       <image resources>
 ```
 
-Each of the `index.md` files need to have the `layout: gallery` in the frontmatter, to make sure the layout of the page is done correctly. Additionally to enable the use of Lightbox, also `lightbox: true` needs to be added to the frontmatter. next to that each of the `index.md` files needs one or more calls to the `mgallery` shortcode. For an explanation of the use of that shortcode, check the [mgallery](/blog/mgallery) blog and the [documentation](/docs/shortcodes/mgallery/overview).
+Each of the `index.md` files need to have the `layout: gallery` in the frontmatter, to make sure the layout of the page is done correctly. Additionally to enable the use of Lightbox, also `lightbox: true` needs to be added to the frontmatter. next to that each of the `index.md` files needs one or more calls to the `mgallery` shortcode. For an explanation of the use of that shortcode, check the {{< link "/blog/mgallery" >}}mgallery{{< /link >}} blog and the {{< link "/docs/shortcodes/mgallery/overview" >}}documentation{{< /link >}}.
 
 ### Changes to the default layout
 
@@ -979,8 +979,54 @@ is to be replaced with
 {{- partial "assets/mimage.html" (dict "url" $thumbnail "ratio" "21x9" "outerClass" "img-wrap" "innerClass" "rounded" "captionClass" "caption-align-right text-italic" "title" .Params.title "caption" $credits) -}}
 ```
 
-Obviously this only works when the `mimage` shortcode is installed, which is explained [here](/blog/mimage).
+Obviously this only works when the `mimage` shortcode is installed, which is explained {{< link "/blog/mimage" >}}here{{< /link >}}.
 
 ## Additional empty line before the comments
 
 I think the space between the last line of the content and the horizontal line for the comments is too small. To make it bigger open the file `layouts/_default/single.html` and search for `<hr>`, prefix that with a break, so that the line becomes `<br><hr>`.
+
+## Adding GoatCounter as analytics tool
+
+Hugo and also Hinode come with GoogleAnalytics out of the box. For this site this has been disabled and a more privacy friendly tool is used, named {{< link "https://www.goatcounter.com" >}}GoatCounter{{< /link >}}.
+
+For this the following is added to `config/_default/params.toml`:
+
+```toml
+[analytics]
+    [analytics.goatcounter]
+        name = "name"
+        enable = true
+```
+
+Note that `"name"` should be replaced with the actual GoatCounter account name.  
+GoatCounter can be disabled by setting `enable` to false.
+
+And to `layouts/partials/footer/scripts.html` this part:
+
+```go-html-template
+{{- if and (not site.IsServer) $header -}}
+    {{- $pc := site.Config.Privacy.GoogleAnalytics -}}
+    {{- if and (not $pc.Disable) (hasPrefix site.GoogleAnalytics "G-") }}
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.GoogleAnalytics }}"></script>
+    {{- end }}
+{{- end -}}
+```
+
+Is to be replaced with:
+
+```go-html-template
+{{- if and (not site.IsServer) $header -}}
+    {{- $pc := site.Config.Privacy.GoogleAnalytics -}}
+    {{- if and (not $pc.Disable) (hasPrefix site.GoogleAnalytics "G-") }}
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.GoogleAnalytics }}"></script>
+    {{- end }}
+    {{- if and site.Params.Analytics.GoatCounter.Enable site.Params.Analytics.GoatCounter.name -}}
+        <script 
+            data-goatcounter="https://{{- site.Params.Analytics.GoatCounter.name -}}.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js">
+        </script>
+    {{- end }}
+{{- end -}}
+```
+
+This allows usage of either Google Analytics or GoatCounter or both.
