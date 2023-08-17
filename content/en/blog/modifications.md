@@ -3,8 +3,8 @@ author: Joost Mans
 title: Hinode changes
 date: 2023-07-21T13:41:48.543Z
 lastmod: 2023-08-15
-description: An overview of the changes to the Hinode template that were made for this site
-tags: ["blog", "Hinode"]
+description: An overview of the changes to the Hinode theme that were made for this site
+tags: ["Hinode", "Hugo", "blog"]
 thumbnail:
     url: /img/changes.jpg
     author: Brett Jordan
@@ -14,7 +14,7 @@ thumbnail:
 ---
 <!-- cSpell:ignore Joost Hinode googleanalytics Katex frontmatter catmull opengraph gelicenseerd onder sociale borderless subdir shortcode hugolib errorf shortcodes lastmod Alexandre Debiève mimage lightbox mgallery webp navgrey navshort goatcounter publishdate pubdate mpagination -->
 
-The foundation of this site is {{< link "https://github.com/gethinode/hinode" >}}Hinode{{< /link >}}. This post provides an overview of the changes that were made to the Hinode theme, to get to the current design of this site. Obviously the information in this blog is very specific for this site, but if there is something of interest with respect to the layout on this site, it should be described here.
+The foundation of this site, besides Hugo, is {{< link "https://github.com/gethinode/hinode" >}}Hinode{{< /link >}}. This post provides an overview of the changes that were made to the Hinode theme, to get to the current design of this site. Obviously the information in this blog is very specific for this site, but if there is something of interest with respect to the layout on this site, it should be described here.
 
 Note that the following changes are described elsewhere:
 
@@ -450,6 +450,12 @@ to:
 {{- $logo_d := replace $logo "zzz" "dark" -}}
 <div class="d-none-light"><img src="{{if $absoluteURL }}{{ absURL $logo_d }}{{ else }}{{ $logo_d }}{{ end }}" alt="{{ $title }} logo" height="50" {{with site.Params.navigation.logoWidth}}width="{{- site.Params.navigation.logoWidth -}}"{{ end }}></div>
 <div class="d-none-dark"><img src="{{if $absoluteURL }}{{ absURL $logo_l }}{{ else }}{{ $logo_l }}{{ end }}" alt="{{ $title }} logo" height="50" {{with site.Params.navigation.logoWidth}}width="{{- site.Params.navigation.logoWidth -}}"{{ end }}></div>
+```
+
+Because of this the navigation bar is higher and could obstruct headers when navigated to. To prevent this, change the `offset` parameter in the `navigation` section of `config/_default/params.toml`:
+
+```toml
+    offset = "4.3em"
 ```
 
 ## Move search box to the right

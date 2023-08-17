@@ -82,7 +82,7 @@
     logoWidth = 174
     color = "body"
     fixed = true
-    offset = "3.8em"
+    offset = "4.3em"
     search = true
     breadcrumb = true
     toc = true
@@ -152,8 +152,8 @@
         cols = 3
         color = ""
         padding = "0"
-        header = "full"
-        footer = "none"
+        header = "publication"
+        footer = "tags"
         orientation = "stacked"
         style = "border-0 card-zoom"
         homepage = 3
@@ -168,7 +168,7 @@
         background = "body-tertiary"
         color = "body"
         padding = "3"
-        header = "none"
+        header = "publication"
         footer = "tags"
         orientation = "horizontal"
         style = "border-1 card-emphasize"
