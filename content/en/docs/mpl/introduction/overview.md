@@ -19,6 +19,7 @@ aliases:
   - "/docs/mpl/"
 _build:
   list: always
+draft: true
 --- 
 <!-- cSpell:ignore joost lastmod webp mimage -->  
 
