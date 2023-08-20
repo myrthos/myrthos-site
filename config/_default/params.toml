@@ -51,8 +51,8 @@
     url = "/docs/shortcodes"
 
 [[docs.releases]]
-    label = "XProject"
-    url = "/docs/xproject"
+    label = "MPL"
+    url = "/docs/mpl"
 # toml-docs-end docs
 
 # toml-docs-start multipage
