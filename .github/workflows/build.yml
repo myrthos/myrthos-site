@@ -44,9 +44,9 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        os: [windows-latest, ubuntu-latest]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-        node-version: [16.x, 18.x, 20.x]
+        node-version: [18.x]
 
     runs-on: ${{ matrix.os }}
 
@@ -76,7 +76,3 @@ jobs:
 
     - name: Build main site
       run: npm run build:cache
-
-    # The example site is to be published to demo.gethinode.com
-    - name: Build example site
-      run: npm run build:example:ci
