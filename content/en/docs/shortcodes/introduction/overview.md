@@ -17,8 +17,6 @@ aliases:
   - "/docs/shortcodes/introduction/overview"
   - "/docs/shortcodes/introduction/"
   - "/docs/shortcodes/"
-_build:
-  list: always
 ---
 <!-- cSpell:ignore joost shortcodes Ashkan Forouzani shortcodespartials Hinode lastmod -->  
 

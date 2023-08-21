@@ -2,12 +2,10 @@
 author: Joost Mans
 title: mimage demo
 date: 2023-07-04
-lastmod: 2023-08-15
+lastmod: 2023-08-21
 Description: A demonstration of some usages of the mimage shortcode
 layout: docs
 showComments: false
-_build:
-  list: never
 ---
 <!-- cSpell:ignore Joost mimage shortcode Letraset Aldus Clintock consectetur undoubtable Finibus Bonorum Malorum amet exif lastmod -->
 

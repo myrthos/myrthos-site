@@ -2,12 +2,10 @@
 author: Joost Mans
 title: mimage shortcode installation
 date: 2023-07-04
-lastmod: 2023-08-15
+lastmod: 2023-08-21
 Description: Information on how to install the mimage shortcode
 layout: docs
 showComments: false
-_build:
-  list: never
 ---
 <!-- cSpell:ignore Joost mimage shortcode Hinode shortcodes lastmod -->
 ## Installation to a site using the Hinode template

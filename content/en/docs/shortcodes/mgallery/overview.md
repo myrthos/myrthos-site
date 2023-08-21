@@ -2,11 +2,9 @@
 author: Joost Mans
 title: Overview of the mgallery shortcode
 date: 2023-07-04
-lastmod: 2023-08-15
+lastmod: 2023-08-21
 Description: Overview of the mgallery shortcode
 layout: docs
-_build:
-  list: never
 ---
 <!-- cSpell:ignore Joost mgallery shortcode mimage gridmasonry lastmod lightbox -->
 
