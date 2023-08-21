@@ -2,11 +2,9 @@
 author: Joost Mans
 title: mimage shortcode overview
 date: 2023-07-04
-lastmod: 2023-08-15
+lastmod: 2023-08-21
 Description: overview of the mimage functionality
 layout: docs
-_build:
-  list: never
 ---
 <!-- cSpell:ignore Joost mimage shortcode Hinode exif lastmod -->
 The `mimage` shortcode is a copy of the Hinode `image` shortcode. The latter shortcode uses two partials, located in `assets/image.md` and `utilities/GetImage.md`. These two partials have been copied to respectively `assets/mimage.md` and `utilities/mGetImage.md`. All changes to the shortcode and partials are made in the copied version.
