@@ -2,13 +2,11 @@
 author: Joost Mans
 title: mgallery demo
 date: 2023-07-04
-lastmod: 2023-08-15
+lastmod: 2023-08-21
 Description: A demonstration of some usages of the mgallery shortcode
 layout: docs
 showComments: false
 modules: ["mgallery"]
-_build:
-  list: never
 ---
 <!-- cSpell:ignore Joost mgallery shortcode lastmod -->
 

@@ -2,12 +2,10 @@
 author: Joost Mans
 title: mgallery shortcode installation
 date: 2023-07-04
-lastmod: 2023-08-15
+lastmod: 2023-08-21
 Description: Information on how to install the mgallery shortcode
 layout: docs
 showComments: false
-_build:
-  list: never
 ---
 <!-- cSpell:ignore Joost mgallery shortcode hinode shortcodes mimage lightbox frontmatter lastmod -->
 ## Installation

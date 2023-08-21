@@ -2,12 +2,10 @@
 author: Joost Mans
 title: mimage usage
 date: 2023-07-04
-lastmod: 2023-08-17
+lastmod: 2023-08-21
 Description: Description on how to use the mimage shortcode
 layout: docs
 showComments: false
-_build:
-  list: never
 ---
 <!-- cSpell:ignore Joost Getimage someimage mimage shortcode autocaption exif shortcodes Hinode frontmatter lastmod -->
 
