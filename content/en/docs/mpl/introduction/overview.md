@@ -17,9 +17,7 @@ aliases:
   - "/docs/mpl/introduction/overview"
   - "/docs/mpl/introduction/"
   - "/docs/mpl/"
-_build:
-  list: always
-draft: true
+landing: true
 --- 
 <!-- cSpell:ignore joost lastmod webp mimage -->  
 
