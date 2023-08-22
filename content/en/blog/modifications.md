@@ -12,7 +12,7 @@ thumbnail:
     origin: Unsplash
     originURL: https://unsplash.com/photos/gJUZjwy2EgE
 ---
-<!-- cSpell:ignore Joost Myrthos Hinode googleanalytics Katex frontmatter catmull opengraph gelicenseerd onder sociale borderless subdir shortcode hugolib errorf shortcodes lastmod Alexandre Debiève mimage lightbox mgallery webp navgrey navshort goatcounter publishdate pubdate mpagination -->
+<!-- cSpell:ignore Joost Myrthos Hinode googleanalytics Katex frontmatter catmull opengraph gelicenseerd onder sociale borderless subdir shortcode hugolib errorf shortcodes lastmod Alexandre Debiève mimage lightbox mgallery webp navgrey navshort goatcounter publishdate pubdate mpagination plainify urlize -->
 
 The foundation of this site, besides Hugo, is {{< link "https://github.com/gethinode/hinode" >}}Hinode{{< /link >}}. This post provides an overview of the changes that were made to the Hinode theme, to get to the current design of this site. Obviously the information in this blog is very specific for this site, but if there is something of interest with respect to the layout on this site, it should be described here.
 
@@ -792,6 +792,48 @@ and
 ```
 
 Note that the names should be identical to the folder structure used, where a `-` in the folder name can be replaced by a space in the yaml files. Also capitalization is ignored.
+
+### Support HTML in title
+
+HTML support can be added to the title as it is being used in the yaml file mentioned before. So it would be possible to do something like this:
+
+```yaml
+- title: Section1
+  pages:
+    - title: Chapter<sup>1</sup>
+    - title: Chapter<sub<2</sub>
+
+- title: Section2
+  pages:
+    - title: Chapter <em>21</em>
+    - title: Chapter 22
+```
+
+To make this possible the partial `layouts/partials/assets/sidebar.html` needs to be modified.
+
+Replace the line:
+
+```go-html-template
+{{- $doc_slug := $title | urlize -}}
+```
+
+with:
+
+```go-html-template
+{{- $doc_slug := $title | plainify | urlize -}}
+```
+
+And replace the two occurrences of:
+
+```go-html-template
+{{ $title }}
+```
+
+with:
+
+```go-html-template
+{{ $title | safeHTML }}
+```
 
 ### Enable thumbnail defined in frontmatter
 
