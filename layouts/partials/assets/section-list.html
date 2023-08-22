@@ -72,12 +72,17 @@
         {{ $list = $sectionPage.RegularPages }}
     {{ end }}
 {{ else }}
-    {{ if $multipage }}
-        {{ $list = $page.Pages }}
+    {{ if eq $page.Params.layout "docs" }}
+        {{ $list = where $page.RegularPages "Params.landing" true }}
     {{ else }}
-        {{ $list = $page.RegularPages }}
+        {{ if $multipage }}
+            {{ $list = $page.Pages }}
+        {{ else }}
+            {{ $list = $page.RegularPages }}
+        {{ end }}
     {{ end }}
 {{ end }}
+
 
 {{ $max := (len $list) -}}
 {{ if eq $max 0 }}

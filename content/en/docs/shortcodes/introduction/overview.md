@@ -13,6 +13,7 @@ thumbnail:
 icon: fas book
 tags: ["documentation", "shortcodes", "partials"]
 layout: docs
+landing: true
 aliases:
   - "/docs/shortcodes/introduction/overview"
   - "/docs/shortcodes/introduction/"
