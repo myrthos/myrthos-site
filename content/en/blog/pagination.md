@@ -2,7 +2,7 @@
 author: Joost Mans
 title: Multi-page articles
 date: 2023-08-15
-lastmod: 2023-08-15
+lastmod: 2023-08-22
 description: Adding the option to create multi-page articles with pagination
 tags: ["pagination", "hugo", "Hinode", "blog"]
 thumbnail:
@@ -66,7 +66,7 @@ A change to the Hinode theme is needed to correct this.
 
 To have the `_index.md` file in `mpfolder` act as an entry point to the multi-page article consisting of the 3 pages in that folder, the file `layouts/partials/assets/section-list.html` needs to be changed. This file is called by `layouts/_default/list.html` to get the pages that belong to the `_index.md` page bundle file, located in `projects`.
 
-```go-html-template {linenos=true,linenostart=34,hl_Lines=[2, 25, "36-38", 40, "42-44", 46]}
+```go-html-template {linenos=true,linenostart=34,hl_Lines=[2, 25, "36-38", 40, "45-47", 49]}
 {{- $width := 100 -}}
 {{- $multipage := false -}}
 
@@ -108,15 +108,19 @@ To have the `_index.md` file in `mpfolder` act as an entry point to the multi-pa
         {{ $list = $sectionPage.RegularPages }}
     {{ end }}
 {{ else }}
-    {{ if $multipage }}
-        {{ $list = $page.Pages }}
+    {{ if eq $page.Params.layout "docs" }}
+        {{ $list = where $page.RegularPages "Params.landing" true }}
     {{ else }}
-        {{ $list = $page.RegularPages }}
+        {{ if $multipage }}
+            {{ $list = $page.Pages }}
+        {{ else }}
+            {{ $list = $page.RegularPages }}
+        {{ end }}
     {{ end }}
 {{ end }}
 ```
 
-The highlighted lines need to be added to the file.
+The highlighted lines need to be added to the file. Note that the assumption is that the {{< link "modifications#Documentation changes" >}}documentation changes{{< /link >}} on line 75-77 have already been applied.
 
 The first two highlighted lines are for checking if the section supports multi-page articles. If so, it sets the `$multipage` variable, but also forces nested to be `false`, because that conflicts with multi-page articles.
 The rest of the highlighted lines are responsible for locating the files that belong to the page bundle. `RegularPages` will find all page files in the `projects` folder and all sub-folders, excluding any `_index.md` file.  
