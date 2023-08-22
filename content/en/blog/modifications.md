@@ -12,7 +12,7 @@ thumbnail:
     origin: Unsplash
     originURL: https://unsplash.com/photos/gJUZjwy2EgE
 ---
-<!-- cSpell:ignore Joost Hinode googleanalytics Katex frontmatter catmull opengraph gelicenseerd onder sociale borderless subdir shortcode hugolib errorf shortcodes lastmod Alexandre Debiève mimage lightbox mgallery webp navgrey navshort goatcounter publishdate pubdate mpagination -->
+<!-- cSpell:ignore Joost Myrthos Hinode googleanalytics Katex frontmatter catmull opengraph gelicenseerd onder sociale borderless subdir shortcode hugolib errorf shortcodes lastmod Alexandre Debiève mimage lightbox mgallery webp navgrey navshort goatcounter publishdate pubdate mpagination -->
 
 The foundation of this site, besides Hugo, is {{< link "https://github.com/gethinode/hinode" >}}Hinode{{< /link >}}. This post provides an overview of the changes that were made to the Hinode theme, to get to the current design of this site. Obviously the information in this blog is very specific for this site, but if there is something of interest with respect to the layout on this site, it should be described here.
 
@@ -676,7 +676,7 @@ nested: false
 layout: docs
 ```
 
-The two parameters `layout` and `nested` are required to make sure the documentation list page is rendered correctly. 
+The two parameters `layout` and `nested` are required to make sure the documentation list page is rendered correctly.
 
 For the documentation page that is to be the first page of the document, aliases should be added in the frontmatter so that when navigating to this document it will always start on that page. Example for `chapter-1.md`:
 
