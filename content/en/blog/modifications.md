@@ -2,7 +2,7 @@
 author: Joost Mans
 title: Hinode changes
 date: 2023-07-21T13:41:48.543Z
-lastmod: 2023-08-15
+lastmod: 2023-08-22
 description: An overview of the changes to the Hinode theme that were made for this site
 tags: ["Hinode", "Hugo", "blog"]
 thumbnail:
@@ -638,15 +638,17 @@ In the section folder create the document pages.
 As an example this structure is used:
 
 ```goat
-docs --+-- project-1 --+-- section1 --+-- chapter-1.md                                     
-       |               |              |
-       |               |              +-- chapter-2.md
-       |               |
-       |               +-- section2 --+-- chapter-21.md
-       |                              |
-       |                              +-- chapter-22.md
-       |
-       +-- PROJect2 ---+-- project-A -+-- chapter-A1.md
+docs --- _index.md 
+  |
+  +--+-- project-1 --+-- section1 --+-- chapter-1.md                                     
+     |               |              |
+     |               |              +-- chapter-2.md
+     |               |
+     |               +-- section2 --+-- chapter-21.md
+     |                              |
+     |                              +-- chapter-22.md
+     |
+     +-- PROJect2 ---+-- project-A -+-- chapter-A1.md
                        |              |
                        |              +-- chapter-A2.md
                        |
@@ -657,13 +659,24 @@ docs --+-- project-1 --+-- section1 --+-- chapter-1.md
 
 ### Frontmatter
 
-For all document pages add in the frontmatter (next to author, description, date and title) the following:
+For all document pages add to the frontmatter the following:
 
 ```yaml
 layout: docs
 ```
 
 This is required, so that the page is rendered properly as a documentation page.
+
+For `_index.md` make the frontmatter look like this:
+
+```yaml
+title: Documentation
+description: The below cards provide an overview of the available documentation sets.
+nested: false
+layout: docs
+```
+
+The two parameters `layout` and `nested` are required to make sure the documentation list page is rendered correctly. 
 
 For the documentation page that is to be the first page of the document, aliases should be added in the frontmatter so that when navigating to this document it will always start on that page. Example for `chapter-1.md`:
 
@@ -677,14 +690,35 @@ aliases:
 Only one page in the entire documentation set should have these aliases.  
 Note that the aliases do not have to be the same as the folder names. The aliases is what Hugo will use when building the site to create the folders. However I find it very confusing when the final site is using a different navigation structure, so I keep the names the same.
 
-All other pages than this first page, should add the following in the frontmatter:
+Next to that also add the following to the frontmatter:
 
 ```yaml
-_build:
-  list: never
+landing: true
 ```
 
-This prevents those pages to be listed in the Documentation overview page. Only the first page will be listed. Note that the title of this page will also be used in that Documentation overview page.
+This identifies this page as a landing page for the documentation set, so that it can be linked to from the documentation list page.  
+
+### Documentation list page
+
+The documentation list page provides a list of all the documentation sets, by showing a card of the page that is identified as the landing page. To make this work, a change to `layouts/partials/assets/section-list.html` is needed.
+
+Search for the line:
+
+```go-html-template
+{{ $list = $page.RegularPages }}
+```
+
+and replace this by:
+
+```go-html-template
+{{ if eq $page.Params.layout "docs" }}
+    {{ $list = where $page.RegularPages "Params.landing" true }}
+{{ else }}
+    {{ $list = $page.RegularPages }}
+{{ end }}
+```
+
+The added line will filter all documentation pages for the frontmatter parameter `landing: true` and only list the pages that have this in the frontmatter.
 
 ### Configuration
 
