@@ -432,27 +432,33 @@ In `config/_default/menus/menus.en.toml` replace the `[[main]]` section with:
 In `static/img`, the following logos exist:
 
 - The site logo (the rotated logo with text)
-  - `Logo_Rotated_Text50_dark.webp`
-  - `Logo_Rotated_Text50_light.webp`
+  - `Logo_Rotated_Text50-dark.webp`
+  - `Logo_Rotated_Text50-light.webp`
 
 The logo has a `dark` and a `light` version, as there is a different logo depending on the selected color.
 
-Change in `config/_default/params.toml` in the `navigation` section `logo` to:  
- `logo = "/img/Logo_Rotated_Text50_zzz.png"`
-and add the following: `logoWidth = 174`.
+Add in `config/_default/params.toml` in the `navigation` section:
 
-Change in `layouts/partials/assets/navbar.html` the line:  
-`<img src="{{if $absoluteURL }}{{ absURL $logo }}{{ else }}{{ $logo }}{{ end }}" alt="{{ $title }} logo" height="30">`
-to:
-
-```html
-{{- $logo_l := replace $logo "zzz" "light" -}}
-{{- $logo_d := replace $logo "zzz" "dark" -}}
-<div class="d-none-light"><img src="{{if $absoluteURL }}{{ absURL $logo_d }}{{ else }}{{ $logo_d }}{{ end }}" alt="{{ $title }} logo" height="50" {{with site.Params.navigation.logoWidth}}width="{{- site.Params.navigation.logoWidth -}}"{{ end }}></div>
-<div class="d-none-dark"><img src="{{if $absoluteURL }}{{ absURL $logo_l }}{{ else }}{{ $logo_l }}{{ end }}" alt="{{ $title }} logo" height="50" {{with site.Params.navigation.logoWidth}}width="{{- site.Params.navigation.logoWidth -}}"{{ end }}></div>
+```toml
+logo = "/img/Logo_Rotated_Text50.webp"
+logoWidth = 174
 ```
 
-Because of this the navigation bar is higher and could obstruct headers when navigated to. To prevent this, change the `offset` parameter in the `navigation` section of `config/_default/params.toml`:
+Change in `layouts/partials/assets/navbar.html` these lines:  
+
+```go-html-template
+<img src="{{if $absoluteURL }}{{ absURL $logoLight }}{{ else }}{{ $logoLight }}{{ end }}" class="d-none-dark" alt="{{ $title }} logo" height="30">
+<img src="{{if $absoluteURL }}{{ absURL $logoDark }}{{ else }}{{ $logoDark }}{{ end }}" class="d-none-light" alt="{{ $title }} logo" height="30">
+```
+
+to:
+
+```go-html-template
+<img src="{{if $absoluteURL }}{{ absURL $logoLight }}{{ else }}{{ $logoLight }}{{ end }}" class="d-none-dark" alt="{{ $title }} logo" height="50" {{with site.Params.navigation.logoWidth}}width="{{- site.Params.navigation.logoWidth -}}"{{ end }}>
+<img src="{{if $absoluteURL }}{{ absURL $logoDark }}{{ else }}{{ $logoDark }}{{ end }}" class="d-none-light" alt="{{ $title }} logo" height="50" {{with site.Params.navigation.logoWidth}}width="{{- site.Params.navigation.logoWidth -}}"{{ end }}>
+```
+
+Because of the logo height change, the navigation bar is higher and could obstruct headers when navigated to. To prevent this, change the `offset` parameter in the `navigation` section of `config/_default/params.toml`:
 
 ```toml
     offset = "4.3em"
