@@ -17,19 +17,20 @@ With the Configurable Logic Cells (CLC) module, it is possible to configure a sp
 
 ---------------------------------------
 
-## MPLCLC_X_DISABLE
+### MPLCLC_X_DISABLE
 
 Disable the Configurable Logic Cells module. Disabling the module will reduce the power consumption of the controller.
 
 The letter 'X' in the module is to be replaced with a number, ranging from 1 to 4, depending on the number of supported CLC modules for the used controller.
 
+{{< table "table-striped table-bordered" >}}
 Controller|Supported
 :--------:|:-------:
-16F15xxx  | 1,2,3,4
+16F153xx  | 1,2,3,4
 16F183x3  | 1,2
 16F1832x  | 1,2,3,4
 16F1834x  | 1,2,3,4
-{.table}
+{{< /table >}}
 
 EXAMPLE
 
@@ -37,19 +38,20 @@ See [MPLCLC_X_ENABLE](#mplclc_enable)
 
 ---------------------------------------
 
-## MPLCLC_X_ENABLE
+### MPLCLC_X_ENABLE
 
 Enable the Configurable Logic Cells module. Note that this is only needed after the [MPLCLC_X_DISABLE](#mplclc_disable) macro is used, as the module is enabled by default.
 
 The letter 'X' in the module is to be replaced with a number, ranging from 1 to 4, depending on the number of supported CLC modules for the used controller.
 
+{{< table "table-striped table-bordered" >}}
 Controller|Supported
 :--------:|:-------:
-16F15xxx  | 1,2,3,4
+16F153xx  | 1,2,3,4
 16F183x3  | 1,2
 16F1832x  | 1,2,3,4
 16F1834x  | 1,2,3,4
-{.table}
+{{< /table >}}
 
 EXAMPLE  
 
