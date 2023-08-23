@@ -3,7 +3,7 @@ author: Joost Mans
 title: MPL
 date: 2023-08-20
 lastmod: 2023-08-20
-Description: Overview of MPL PIC library.
+Description: Overview of the MPL PIC library.
 thumbnail:
     url: /img/mpl.webp
     author: Google DeepMind
@@ -31,7 +31,7 @@ The goal of MPL is to support the more modern 8-bit PIC controllers as listed in
 
 {{< mimage src="supported.webp" caption="Overview of the controller families that are intended to be supported" text="text-italic caption-align-right" >}}
 
-Each of the controllers has a set of modules that are supported by that controller and even multiple instanced of a module. The maximum set of modules are listed below. The 3-letter or 4-letter abbreviation that is used in MPL for a module is provided as well.
+Each of the controllers has a set of modules that are supported by that controller and depending on the controller type, even multiple instances of a module. The maximum set of available modules are listed below. The 3-letter or 4-letter abbreviation that is used in MPL for a module is provided as well.
 
 {{< mimage src="modules.png" caption="Overview of the modules and their MPL abbreviation" outer="image-center" text="text-italic caption-align-right" >}}
 

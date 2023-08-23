@@ -13,6 +13,7 @@
       "footer",
       "form",
       "g",
+      "h1",
       "h2",
       "h3",
       "h4",
@@ -81,6 +82,7 @@
       "btn-social",
       "btn-toggle",
       "btn-toggle-nav",
+      "c",
       "caption-align-right",
       "caption-center",
       "caption-left",
@@ -432,6 +434,11 @@
       "moderation-actions",
       "modifying-the-page-bundle-frontmatter",
       "move-search-box-to-the-right",
+      "mpl-configurable-logic-cells-macros",
+      "mplclc_disable",
+      "mplclc_enable",
+      "mplclc_x_disable",
+      "mplclc_x_enable",
       "myrthos-the-site",
       "navbar-0-collapse",
       "not-allowed-comments",
@@ -464,6 +471,7 @@
       "toast-message-clipboard-5",
       "toc-collapse",
       "update-sharing-providers",
+      "using-the-configurable-logic-cells",
       "wrap-up"
     ]
   }
