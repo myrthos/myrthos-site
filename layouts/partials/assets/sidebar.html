@@ -53,7 +53,7 @@
     {{ $baseURL := .baseURL}}
     {{ $title := .title}}
 
-    {{- $doc_slug := $title | plainify | urlize -}}
+    {{- $doc_slug := $title | replaceRE "{{<.+?>}}" "" | urlize -}}
     {{- $href := printf "%s/" (relLangURL (path.Join $baseURL $doc_slug)) -}}
     {{ $active := eq $page.RelPermalink $href }}
 
@@ -64,7 +64,7 @@
             <ul class="btn-toggle-nav list-unstyled fw-bold pb-1">
                 <li>
                     <a href="{{ $href }}" class="sidebar-item text-decoration-none rounded {{ if $active }}active{{ end }}">
-                        {{ $title | safeHTML }}
+                        {{ $title | $page.RenderString }}
                     </a>      
                 </li>
             </ul>
@@ -72,7 +72,7 @@
     {{ else }}
         <li>
             <a href="{{ $href }}" class="sidebar-item text-decoration-none rounded small {{ if $active }}active{{ end }}">
-                {{ $title | safeHTML }}
+                {{ $title | $page.RenderString }}
             </a>      
         </li>
     {{ end }}

@@ -1,5 +1,5 @@
 # This file holds all menu entries for the docs sidebar
-# cSpell:ignore Redund
+# cSpell:ignore Redund mstyle
 
 - title: Introduction
   pages:
@@ -9,13 +9,13 @@
 
 - title: Peripheral
   pages:
-    - title: CLC <small>Configurable Logic Cell</small>
-    - title: CLK <small>Clock Circuitry</small>
-    - title: CLR <small>Clock Reference</small>
-    - title: CRC <small>Cyclic Redund. Check</small>
-    - title: CTM <small>Capacitive Touch Mod.</small>
-    - title: IOC <small>Interrupt on Change</small>
-    - title: NVM <small>Non Volatile Memory</small>
-    - title: PER <small>Peripheral</small>
-    - title: PWR <small>Power Savings</small>
-    - title: WDT <small>Watchdog  Timer</small>
+    - title: CLC {{< mstyle "small" >}}Configurable Logic Cell{{< /mstyle >}}
+    - title: CLK {{< mstyle "sup" >}}Clock Circuitry{{< /mstyle >}}
+    - title: CLR {{< mstyle "sub" >}}Clock Reference{{< /mstyle >}}
+    - title: CRC {{< mstyle "small underline" >}}Cyclic Redund. Check{{< /mstyle >}}
+    - title: CTM {{< mstyle "small" >}}Capacitive Touch Mod.{{< /mstyle >}}
+    - title: IOC {{< mstyle "small" >}}Interrupt on Change{{< /mstyle >}}
+    - title: NVM {{< mstyle "small" >}}Non Volatile Memory{{< /mstyle >}}
+    - title: PER {{< mstyle "small" >}}Peripheral{{< /mstyle >}}
+    - title: PWR {{< mstyle "small" >}}Power Savings{{< /mstyle >}}
+    - title: WDT {{< mstyle "small" >}}Watchdog  Timer{{< /mstyle >}}
