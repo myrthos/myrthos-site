@@ -217,7 +217,7 @@ Some ~~strike-through text~~
 
 ### underline
 
-There is no defined way in markdown to underline text, as a result the html `u` tag would be required.
+There is no defined way in markdown to underline text, as a result the html `u` tag would be required. If the underline is not visible, unsafe HTML has been disabled.
 
 ```html
 <u>This is underlined.</u>
@@ -229,7 +229,7 @@ There is no defined way in markdown to underline text, as a result the html `u` 
 
 ### Superscript and subscript
 
-Superscript and subscript are supported in HTML only. If below the blockquote nothing is visible, then unsafe HTML has been disabled in the site configuration
+Superscript and subscript are supported in HTML only. If below the blockquote nothing is visible, unsafe HTML has been disabled.
 
 ```html
 This is<sup>superscript</sup>  
@@ -254,6 +254,10 @@ This is{{< mstyle "sup" >}}superscript{{< /mstyle >}}
 This is{{< mstyle "sub" >}}subscript{{< /mstyle >}}  
 
 Any existing class can be used, also more than one class can be used, like this:
+
+```go-html-template
+This is {{</* mstyle "small underline" */>}}small and underlined{{</* /mstyle */>}} text.
+```
 
 This is {{< mstyle "small underline" >}}small and underlined{{< /mstyle >}} text.  
 
@@ -764,10 +768,10 @@ On Hinode and this site, the above shows the proper formulas, because the `Katex
 
 ## Inline HTML
 
-it is possible to use raw html in Markdown. For the most part it will work.  
+It is possible to use raw html in Markdown. For the most part it will work.  
 Using Markdown in HTML, usually does not work very well, so it is best to use HTML tags.
 
-For security reasons, this option is disabled by default in HUGO, but enabled in Hinode by default.
+For security reasons, this option is disabled by default in HUGO, resulting in all HTML tags being removed.
 
 ```html
 <dl>
@@ -783,7 +787,7 @@ For security reasons, this option is disabled by default in HUGO, but enabled in
 
 <dt>Markdown in HTML</dt> <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd> </dl>
 
-Use the HTML element <abbr> for abbreviations and acronyms to show the expanded version on hover. Abbreviations have a default underline and gain a help cursor to provide additional context on hover and to users of assistive technologies.
+Use the HTML element `<abbr>` for abbreviations and acronyms to show the expanded version on hover. Abbreviations have a default underline and gain a help cursor to provide additional context on hover and to users of assistive technologies.
 
 ```HTML
 <p><abbr title="HyperText Markup Language">HTML</abbr></p>
