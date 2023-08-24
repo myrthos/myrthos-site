@@ -1,3 +1,4 @@
+// cSpell:ignore mpage mstyle shortcode 
 // Placeholder to quickly add your own styles
 // The file is included last in the build pipeline
 
@@ -16,4 +17,21 @@
 // Override the distance between pagination items, to make it a bit smaller.
 .pagination .mpage-item {
     margin: 0.1rem;
+}
+
+// Create styles to be used with the mstyle shortcode
+.sup {
+    vertical-align: super;
+    font-size: smaller;
+    line-height: normal;
+}
+
+.sub {
+    vertical-align: sub;
+    font-size: smaller;
+    line-height: normal;
+  }
+
+.underline {
+    text-decoration-line: underline;
 }

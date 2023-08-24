@@ -1,0 +1,21 @@
+<!-- 
+    cSpell:ignore shortcode errorf
+
+    Generates a span with the specified class attribute. The shortcode supports the following named arguments:
+    "class"         Class attributes to use.
+-->
+
+{{ $class := "" }}
+{{ $text := trim .Inner " \r\n" | .Page.RenderString | safeHTML }}
+
+{{ if .IsNamedParams }}
+    {{- $class := .Get "class" -}}
+{{ else }}
+    {{ $class = .Get 0 }}
+{{ end }}
+
+{{ if not $class }}
+    {{ errorf "shortcode mstyle: Expected param 'class': %s" .Position -}}
+{{ else }}
+    <span class="{{ $class }}">{{ $text }}</span>
+{{ end }}
