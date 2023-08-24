@@ -7,7 +7,7 @@ Description: Description on how to use the mimage shortcode
 layout: docs
 showComments: false
 ---
-<!-- cSpell:ignore Joost Getimage someimage mimage shortcode autocaption exif shortcodes Hinode frontmatter lastmod -->
+<!-- cSpell:ignore Joost Getimage someimage mimage shortcode autocaption exif shortcodes Hinode frontmatter lastmod mtag -->
 
 ## mimage shortcode
 
@@ -110,18 +110,18 @@ If it is not successful `nil` is returned. There are two conditions when this ca
 ## _mimage classes
 
 There are a number of classes defined that can be used with the `mimage` shortcode. They are defined in `assets/scss/_mimage.scss`. The file also contains classes that are used by the `mimage` partial, which implies that the `_mimage.scss` file is a required file.
-
+{{< mtag "nobr" >}}text italic{{< /mtag >}}
 Class|Description
 ---|---
 url|Required parameter, which specifies the image to load. See also the {{< link "#image-source" >}}src{{< /link >}} parameter of the `mimage` shortcode.
-<nobr>text-italic</nobr>|Used for the caption text, to make it italic.
-<nobr>caption-right</nobr>|Align the caption and credits to the bottom right of the image.
-<nobr>caption-center</nobr>|Align the caption and credits to the center of the image.
-<nobr>caption-left</nobr>|Align the caption and credits to the left of the image.
-<nobr>image-center</nobr>|Center the image
-<nobr>image-float-left</nobr>|Place the image to the left and make text wrap around the right side of the image, when the image is smaller than the available space.
-<nobr>image-float-right</nobr>|Place the image to the right and make text wrap around the left side of the image, when the image is smaller than the available space.
-<nobr>image-radius-x</nobr>|creates rounded corners on the image. 'x' is a value from 1 to 5. Where 1 is the largest radius and 5, the smallest.
+{{< mtag "nobr" >}}text-italic{{< /mtag >}}|Used for the caption text, to make it italic.
+{{< mtag "nobr" >}}caption-right{{< /mtag >}}|Align the caption and credits to the bottom right of the image.
+{{< mtag "nobr" >}}caption-center{{< /mtag >}}|Align the caption and credits to the center of the image.
+{{< mtag "nobr" >}}caption-left{{< /mtag >}}|Align the caption and credits to the left of the image.
+{{< mtag "nobr" >}}image-center{{< /mtag >}}|Center the image
+{{< mtag "nobr" >}}image-float-left{{< /mtag >}}|Place the image to the left and make text wrap around the right side of the image, when the image is smaller than the available space.
+{{< mtag "nobr" >}}image-float-right{{< /mtag >}}|Place the image to the right and make text wrap around the left side of the image, when the image is smaller than the available space.
+{{< mtag "nobr" >}}image-radius-x{{< /mtag >}}|creates rounded corners on the image. 'x' is a value from 1 to 5. Where 1 is the largest radius and 5, the smallest.
 {.table}
 
 When the `mimage` partial is used to replace the `image` partial in an other existing Hinode partial, only the `text-italic` and `image-radius-x` classes from the above table will certainly work, as the other classes might conflict with the already used classes in that Hinode partial.  
@@ -129,7 +129,7 @@ To still be able to align the caption properly in that case, the following class
 
 Class|Description
 ---|---
-<nobr>caption-align-right</nobr>|Align the caption and credits to the bottom right of the image.
-<nobr>caption-align-center</nobr>|Align the caption and credits to the center of the image.
-<nobr>caption-align-left</nobr>|Align the caption and credits to the left of the image.
+{{< mtag "nobr" >}}caption-align-right{{< /mtag >}}|Align the caption and credits to the bottom right of the image.
+{{< mtag "nobr" >}}caption-align-center{{< /mtag >}}|Align the caption and credits to the center of the image.
+{{< mtag "nobr" >}}caption-align-left{{< /mtag >}}|Align the caption and credits to the left of the image.
 {.table}
