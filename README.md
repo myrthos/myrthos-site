@@ -1,4 +1,4 @@
-<!-- CSpell:ignore Hinode codebases -->
+<!-- CSpell:ignore Hinode codebases myrthos -->
 # About this site
 
 This the repository for [myrthos.net](https://myrthos.net). It is a site that is still in development to outgrow its infancy.
@@ -7,6 +7,7 @@ The site is intended to be used as my playground, where I post blogs, write abou
 
 It is a [Hugo][hugo] site that uses the [Hinode][repository] theme with some modifications.
 
+<!-- Markdownlint-disable MD033 -->
 <!-- Badges -->
 <p align="center">
     <a href="https://gohugo.io" alt="Hugo website">
@@ -37,7 +38,7 @@ It is a [Hugo][hugo] site that uses the [Hinode][repository] theme with some mod
         <img src="https://img.shields.io/github/license/myrthos/myrthos-site">
     </a>
 </p>
-
+<!-- Markdownlint-enable MD033 -->
 Although based on a Hugo theme, this repository is not developed to be used as a Hugo theme. It is a modified version of the Hinode theme and developed as a specific implementation, with all the deviations and additions described in a blog post. If you are looking for a theme, you are much better of using Hinode, as that is supported.  
 Detailed information about Hinode is available on the [official website][website].
 

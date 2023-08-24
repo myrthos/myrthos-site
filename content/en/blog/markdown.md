@@ -14,7 +14,7 @@ thumbnail:
 modules: ["katex"]
 ---  
 <!-- cSpell:ignore goldmark blockquotes frontmatter xcab XFFFD someid someclass somevalue linenos linenostart stle mynote katex emojist healthcheck linkify strikethrough blackfriday myclass monokai lineanchors shortcode shortcodes Hinode relref fontawesome borderless viewports joost Hinode Victória Kubiaki lastmod myrthos -->
-<!-- markdownlint-disable MD025 -->
+<!-- markdownlint-disable MD025 MD033 -->
 
 I use this document to show what is supported and what is not by various markdown processes. I've added it here to see what is supported in Hugo and Hinode.
 
