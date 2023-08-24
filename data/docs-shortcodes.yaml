@@ -1,5 +1,5 @@
 # This file holds all menu entries for the docs sidebar
-# cSpell:ignore mimage mgallery 
+# cSpell:ignore mimage mgallery mstyle mtag
 
 - title: Introduction
   pages:
@@ -19,4 +19,14 @@
     - title: Usage
     - title: Demo
 
+- title: mstyle
+  pages:
+    - title: Overview
+    - title: Installation
+    - title: Usage
 
+- title: mtag
+  pages:
+    - title: Overview
+    - title: Installation
+    - title: Usage

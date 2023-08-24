@@ -7,7 +7,7 @@ Description: Information on how to install the mimage shortcode
 layout: docs
 showComments: false
 ---
-<!-- cSpell:ignore Joost mimage shortcode Hinode shortcodes lastmod -->
+<!-- cSpell:ignore Joost mimage shortcode Hinode shortcodes lastmod Myrthos -->
 ## Installation to a site using the Hinode template
 
 If you want to use the mimage shortcode in your Hugo site, using the Hinode template, just copy the following files from the Myrthos repository to your site, using the same folder structure and filenames:
