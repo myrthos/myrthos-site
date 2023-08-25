@@ -7,32 +7,33 @@
             "br"
 -->
 
-{{ $tag := "" }}
-{{ $text := "" }}
+{{- $tag := "" -}}
+{{- $text := "" -}}
+{{- $page := . -}}
 
-{{ with .Inner }}
-    {{ $text = trim . " \r\n" }}
-{{ end }}
+{{- with .Inner -}}
+    {{- $text = trim . " \r\n" | $page.Page.RenderString | safeHTML -}}
+{{- end -}}
 
-{{ if .IsNamedParams }}
+{{- if .IsNamedParams -}}
     {{- $tag := .Get "tag" -}}
-{{ else }}
-    {{ $tag = .Get 0 }}
-{{ end }}
+{{- else -}}
+    {{- $tag = .Get 0 -}}
+{{- end -}}
 
-{{ if not $tag }}
-    {{ errorf "shortcode mtag: Expected param 'tag': %s" .Position -}}
-{{ else }}
-    {{ $supportedTags := slice "nobr" "br"}}
-    {{ if in $supportedTags $tag }}
-        {{ with .Inner }}
-            {{ $html := printf "<%s>%s</%s>" $tag $text $tag }}
-            {{ $html | safeHTML }}
-        {{ else}}
-            {{ $html := printf "<%s>" $tag }}
-            {{ $html | safeHTML }}
-    {{ end }}
-    {{ else }}
-        {{ errorf "shortcode mtag: Unsupported tag: %s" $tag -}}
-    {{ end }}
-{{ end }}
+{{- if not $tag -}}
+    {{- errorf "shortcode mtag: Expected param 'tag': %s" .Position -}}
+{{- else -}}
+    {{- $supportedTags := slice "nobr" "br" -}}
+    {{- if in $supportedTags $tag -}}
+        {{- with .Inner -}}
+            {{- $html := printf "<%s>%s</%s>" $tag $text $tag -}}
+            {{- $html | safeHTML -}}
+        {{- else -}}
+            {{- $html := printf "<%s>" $tag -}}
+            {{- $html | safeHTML -}}
+    {{- end -}}
+    {{- else -}}
+        {{- errorf "shortcode mtag: Unsupported tag: %s" $tag -}}
+    {{- end -}}
+{{- end -}}
