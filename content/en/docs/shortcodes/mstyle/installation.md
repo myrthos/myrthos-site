@@ -10,7 +10,7 @@ showComments: false
 <!-- cSpell:ignore Joost mstyle shortcode shortcodes lastmod Myrthos Hinode -->
 ## Installation to a Hugo site
 
-If you want to use the mstyle shortcode in your Hugo site, just copy the following file from the Myrthos repository to your site's shortcode folder:
+If you want to use the mstyle shortcode in your Hugo site, just copy the following file from the Myrthos {{< link "https://github.com/myrthos/myrthos-site" >}}repository{{< /link >}} to your site's shortcode folder:
 
 - layouts/shortcodes/mstyle.html
 

@@ -10,6 +10,6 @@ showComments: false
 <!-- cSpell:ignore Joost mtag shortcode shortcodes lastmod Myrthos -->
 ## Installation to a Hugo site
 
-If you want to use the mtag shortcode in your Hugo site, just copy the following file from the Myrthos repository to your site's shortcode folder:
+If you want to use the mtag shortcode in your Hugo site, just copy the following file from the Myrthos {{< link "https://github.com/myrthos/myrthos-site" >}}repository{{< /link >}} to your site's shortcode folder:
 
 - layouts/shortcodes/mtag.html

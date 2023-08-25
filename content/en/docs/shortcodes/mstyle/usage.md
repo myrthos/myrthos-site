@@ -12,7 +12,7 @@ showComments: false
 ## mstyle shortcode
 
 The source code of the `mstyle` shortcode is located in `layouts/shortcodes/mstyle.html`.  
-The purpose of this shortcode is to allow for limited set of styling functionality that can be applied to text.
+The purpose of this shortcode is to allow for a limited set of styling functionality that can be applied to markdown text.
 
 ### Parameters
 
@@ -27,7 +27,10 @@ class|The class or classes that are to be applied.
 The `mstyle` tag is to be used as follows:
 
 ```go-html-template
-{{</* mstyle "class1 class2 class3" */>}}The text to style{{</* /mstyle */>}}
+{{</* mstyle "class1 class2 class3" */>}}The text to style{{</* /mstyle */>}}  
+or
+{{</* mstyle class="class1 class2 class3" */>}}The text to style{{</* /mstyle */>}}  
+
 ```
 
 Any existing class can be used.
@@ -47,7 +50,7 @@ This is text using superscript: I{{</* mstyle "sup" */>}}2{{</* /mstyle */>}}C.
 This is text using superscript: I{{< mstyle "sup" >}}2{{< /mstyle >}}C.
 
 ```go-html-template
-This is {{</* mstyle "small" */>}}small{{</* /mstyle */>}} text that is also {{</* mstyle "small underline" */>}}underlined{{</* /mstyle */>}}.
+This is {{</* mstyle "small" */>}}small{{</* /mstyle */>}} text that can also be {{</* mstyle "small underline" */>}}underlined{{</* /mstyle */>}}.
 ```
 
-This is {{< mstyle "small" >}}small{{< /mstyle >}} text that is also {{< mstyle "small underline" >}}underlined{{< /mstyle >}}.
+This is {{< mstyle "small" >}}small{{< /mstyle >}} text that can also be {{< mstyle "small underline" >}}underlined{{< /mstyle >}}.
