@@ -24,7 +24,7 @@ jobs:
         cache-dependency-path: '**/package-lock.json'
 
     - name: Perform clean install of npm
-      run: npm ci
+      run: npm i
 
     - name: Update Hugo module dependencies
       id: mod-updates
