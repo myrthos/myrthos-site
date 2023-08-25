@@ -12,7 +12,7 @@ thumbnail:
     origin: Unsplash
     originURL: https://unsplash.com/photos/JMATuFkXeHU
 ---
-<!-- cSpell:ignore Joost lastmod Tutunaru webp jmooring frontmatter multipage pagenumber mpfolder anotherpage thispage Hinode linenos linenostart isset errorf myproject offcanvas offcanvass inledby mpagination dropup mimage pagbut pagbutfirst pagbutlast pagarrow paglist pagdrop pagdroplist -->
+<!-- cSpell:ignore Joost lastmod Tutunaru webp jmooring frontmatter multipage pagenumber mpfolder anotherpage thispage Hinode linenos linenostart isset errorf myproject offcanvas offcanvass inledby mpagination dropup mimage pagbut pagbutfirst pagbutlast pagarrow paglist pagdrop pagdroplist mtag -->
 For the projects articles I am planning to write, I need the option to split an article over multiple pages. These pages belong together and it needs to be possible to navigate from one page to the other. On top of that it needs to have as little configuration as possible.
 
 While searching for potential ways to solve this, I found this solution by {{< link "https://github.com/jmooring/hugo-testing/tree/hugo-forum-topic-29161" >}}jmooring{{< /link >}}, which I felt was a nice solution. It is a generic solution for Hugo and I *only* had to make it work for the Hinode theme, I am using. The following describes the steps I took to accomplish this.
@@ -55,7 +55,7 @@ projects
 
 ```
 
-<br>
+{{< mtag "br" />}}
 This is used as an example throughout this blog.
 
 When Hugo processes the files, the `_index.md` file in the `projects` folder will be responsible for searching for all the page files. It will however not find the `_index.md` file in the `mpfolder`. instead, it will show the 3 pages in that folder as separate projects. As a result there will be four projects shown. Whereas the multi-page folder, should be shown as 1 project.
@@ -299,12 +299,12 @@ Using 6 pages, with page 4 being the current page and the mouse hovering over pa
 
 {{< mimage src="img/pagbut4.jpg" mode="true" inner="image-center" >}}
 
-<br>
+{{< mtag "br" />}}
 Using 6 pages, with the first page being the current page.
 
 {{< mimage src="img/pagbutfirst.jpg" mode="true" inner="image-center" >}}
 
-<br>
+{{< mtag "br" />}}
 Using 6 pages, with the last page being the current page.
 
 {{< mimage src="img/pagbutlast.jpg" mode="true" inner="image-center" >}}
@@ -327,12 +327,12 @@ When the dropdown button is not clicked.
 
 {{< mimage src="img/pagdrop.jpg" mode="true" inner="image-center" >}}
 
-<br>
+{{< mtag "br" />}}
 When the dropdown button is clicked, the list shows below the button. Page 1 is the current page and the mouse hovers over page 4.
 
 {{< mimage src="img/pagdroplist.jpg" mode="true" inner="image-center" >}}
 
-<br>
+{{< mtag "br" />}}
 For the dropup button, the list shows above the button and the triangle in that button, points up.
 
 ## Wrap-up

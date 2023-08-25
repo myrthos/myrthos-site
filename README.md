@@ -1,42 +1,22 @@
-<!-- CSpell:ignore Hinode codebases -->
+<!-- CSpell:ignore Hinode codebases myrthos -->
 # About this site
 
-This the repository for [myrthos.net](https://myrthos.net). It is a site that is still in development to outgrow its infancy.
+This is the repository for [myrthos.net](https://myrthos.net). It is a site that is still in development to outgrow its infancy.
 
 The site is intended to be used as my playground, where I post blogs, write about projects, create documentation and show photo's about the things that interest me.
 
 It is a [Hugo][hugo] site that uses the [Hinode][repository] theme with some modifications.
 
 <!-- Badges -->
-<p align="center">
-    <a href="https://gohugo.io" alt="Hugo website">
-        <img src="https://img.shields.io/badge/generator-hugo-brightgreen">
-    </a>
-    <a href="https://gethinode.com" alt="Hinode theme">
-        <img src="https://img.shields.io/badge/theme-hinode-blue">
-    </a>
-    <a href="https://stats.uptimerobot.com/8yg4PiOXlQ" alt="UptimeRobot Status">
-        <img src="https://img.shields.io/uptimerobot/status/m794949079-97ae91d35b05b4d81325dada">
-    </a>
-    <!-- <a href="https://github.com/myrthos/myrthos-site/releases" alt="Last release">
-        <img src="https://img.shields.io/github/v/release/myrthos/myrthos-site">
-    </a>
-    <a href="https://github.com/myrthos/myrthos-site/releases" alt="Release date">
-        <img src="https://img.shields.io/github/release-date/myrthos/myrthos-site">
-    </a> -->
-    <a href="https://github.com/myrthos/myrthos-site/commits/main" alt="Last commit">
-        <img src="https://img.shields.io/github/last-commit/myrthos/myrthos-site/main">
-    </a>
-    <a href="https://github.com/myrthos/myrthos-site/labels/bug" alt="bugs">
-        <img src="https://img.shields.io/github/issues/myrthos/myrthos-site/bug">
-    </a>
-    <a href="https://github.com/myrthos/myrthos-site/pulls" alt="Pulls">
-        <img src="https://img.shields.io/github/issues-pr/myrthos/myrthos-site">
-    </a>
-    <a href="https://github.com/myrthos/myrthos-site/blob/main/LICENSE" alt="License">
-        <img src="https://img.shields.io/github/license/myrthos/myrthos-site">
-    </a>
-</p>
+[![Static Badge](https://img.shields.io/badge/generator-hugo-brightgreen)](https://gohugo.io "Hugo website")
+[![Static Badge](https://img.shields.io/badge/theme-hinode-blue)](https://gethinode.com "Hinode theme")
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m794949079-97ae91d35b05b4d81325dada)](https://stats.uptimerobot.com/8yg4PiOXlQ "myrthos.net")
+[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/myrthos/myrthos-site/main)](https://github.com/myrthos/myrthos-site/commits/main "last commit")
+[![GitHub issues by-label](https://img.shields.io/github/issues/myrthos/myrthos-site/bug)](https://github.com/myrthos/myrthos-site/labels/bug "Bugs")
+[![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/myrthos/myrthos-site)](https://github.com/myrthos/myrthos-site/pulls "Pull requests")
+[![License](https://img.shields.io/github/license/myrthos/myrthos-site)](https://github.com/myrthos/myrthos-site/blob/main/LICENSE "License")
+<!-- [![GitHub Last Releases](https://img.shields.io/github/v/release/myrthos/myrthos-site)](https://github.com/myrthos/myrthos-site/releases "Last release")
+[![GitHub Last Release Date](https://img.shields.io/github/release-date/myrthos/myrthos-site)](https://github.com/myrthos/myrthos-site/releases "Last release")-->
 
 Although based on a Hugo theme, this repository is not developed to be used as a Hugo theme. It is a modified version of the Hinode theme and developed as a specific implementation, with all the deviations and additions described in a blog post. If you are looking for a theme, you are much better of using Hinode, as that is supported.  
 Detailed information about Hinode is available on the [official website][website].

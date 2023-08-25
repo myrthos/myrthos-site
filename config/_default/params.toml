@@ -27,6 +27,7 @@
 [debugging]
     showJS = false
     showSCSS = false
+    purgeHTMLComments = false
 # toml-docs-end debugging
 
 # toml-docs-start analytics
@@ -78,7 +79,7 @@
 # toml-docs-start navigation
 [navigation]
     anchor = true
-    logo = "/img/Logo_Rotated_Text50_zzz.webp"
+    logo = "/img/Logo_Rotated_Text50.webp"
     logoWidth = 174
     color = "body"
     fixed = true
@@ -87,6 +88,7 @@
     breadcrumb = true
     toc = true
     sidebar = true
+    size = "md"
 # toml-docs-end navigation
 
 # toml-docs-start messages

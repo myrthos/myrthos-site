@@ -13,8 +13,8 @@ thumbnail:
     originURL: https://unsplash.com/photos/OukRLogaKPE
 modules: ["katex"]
 ---  
-<!-- cSpell:ignore goldmark blockquotes frontmatter xcab XFFFD someid someclass somevalue linenos linenostart stle mynote katex emojist healthcheck linkify strikethrough blackfriday myclass monokai lineanchors shortcode shortcodes Hinode relref fontawesome borderless viewports joost Hinode Victória Kubiaki lastmod -->
-<!-- markdownlint-disable MD025 -->
+<!-- cSpell:ignore goldmark blockquotes frontmatter xcab XFFFD someid someclass somevalue linenos linenostart stle mynote katex emojist healthcheck linkify strikethrough blackfriday myclass monokai lineanchors shortcode shortcodes Hinode relref fontawesome borderless viewports joost Hinode Victória Kubiaki lastmod myrthos -->
+<!-- markdownlint-disable MD025 MD033 -->
 
 I use this document to show what is supported and what is not by various markdown processes. I've added it here to see what is supported in Hugo and Hinode.
 
@@ -28,19 +28,15 @@ There is a focus in this document on markdown as it is used by Github, which use
       - [H4](#h4)
         - [H5](#h5)
           - [H6](#h6)
-    - [Hinode additional options](#hinode-additional-options)
-      - [Heading not in TOC](#heading-not-in-toc)
-      - [Larger heading style](#larger-heading-style)
   - [Line breaks](#line-breaks)
   - [Paragraphs](#paragraphs)
-    - [Hinode additional options](#hinode-additional-options-1)
-      - [Lead](#lead)
-  - [Emphasizing text](#emphasizing-text)
+  - [Text decorations](#text-decorations)
     - [Bold](#bold)
     - [Italic](#italic)
     - [strike-through](#strike-through)
     - [underline](#underline)
-  - [Superscript and subscript](#superscript-and-subscript)
+    - [Superscript and subscript](#superscript-and-subscript)
+    - [Myrthos additional option](#myrthos-additional-option)
   - [Lists](#lists)
   - [Code and Highlighting](#code-and-highlighting)
     - [inline code](#inline-code)
@@ -48,14 +44,14 @@ There is a focus in this document on markdown as it is used by Github, which use
     - [Fenced code blocks](#fenced-code-blocks)
     - [Hugo additional options](#hugo-additional-options)
   - [Links](#links)
-    - [Hinode extension](#hinode-extension)
+    - [Hinode additional option](#hinode-additional-option)
   - [Blockquotes](#blockquotes)
-    - [Hinode additional options](#hinode-additional-options-2)
+    - [Hinode additional option](#hinode-additional-option-1)
   - [Images](#images)
   - [Horizontal rule](#horizontal-rule)
   - [Footnotes](#footnotes)
   - [Tables](#tables)
-    - [Hinode additional options](#hinode-additional-options-3)
+    - [Hinode additional option](#hinode-additional-option-2)
   - [Formula](#formula)
   - [Inline HTML](#inline-html)
   - [Videos](#videos)
@@ -132,49 +128,6 @@ It is also possible to define your own id, attribute and class by using curly br
 
 ###### H6
 
-### Hinode additional options
-
-#### Heading not in TOC
-
-To use the font style of a heading, but not include it in the TOC use the following HTML:
-
-```HTML
-<p class="h1">H1</p>
-<p class="h2">H2</p>
-<p class="h3">H3</p>
-<p class="h4">H4</p>
-<p class="h5">H5</p>
-<p class="h6">H6</p>
-
-```
-<!--markdownlint-disable  MD033 -->
-<p class="h1">H1</p>
-<p class="h2">H2</p>
-<p class="h3">H3</p>
-<p class="h4">H4</p>
-<p class="h5">H5</p>
-<p class="h6">H6</p>
-
-#### Larger heading style
-
-To use a slightly larger heading style by using the following HTML:
-
-```HTML
-<h1 class="display-1">Display 1</h1>
-<h1 class="display-2">Display 2</h1>
-<h1 class="display-3">Display 3</h1>
-<h1 class="display-4">Display 4</h1>
-<h1 class="display-5">Display 5</h1>
-<h1 class="display-6">Display 6</h1>
-```
-
-<h1 class="display-1">Display 1</h1>
-<h1 class="display-2">Display 2</h1>
-<h1 class="display-3">Display 3</h1>
-<h1 class="display-4">Display 4</h1>
-<h1 class="display-5">Display 5</h1>
-<h1 class="display-6">Display 6</h1>
-
 [Top^](#markdown)
 
 ## Line breaks
@@ -224,25 +177,9 @@ line 2
 In this situation, adding two spaces at the end of line 1, will have no effect.\
 Adding an extra empty line, will also have no effect. Two or more empty lines, will results in a single empty line
 
-### Hinode additional options
-
-#### Lead
-
-Make a paragraph stand out by adding the `lead` class in HTML.
-
-```HTML
-<p class="lead">
-This is a lead paragraph. It stands out from regular paragraphs.
-</p>
-```
-
-<p class="lead">
-This is a lead paragraph. It stands out from regular paragraphs.
-</p>
-
 [Top^](#markdown)
 
-## Emphasizing text
+## Text decorations
 
 Text can be emphasized by making it bold, italic or strike-through.
 
@@ -280,7 +217,7 @@ Some ~~strike-through text~~
 
 ### underline
 
-There is no defined way in markdown to underline text, as a result the html `u` tag would be required.
+There is no defined way in markdown to underline text, as a result the html `u` tag would be required. If the underline is not visible, unsafe HTML has been disabled.
 
 ```html
 <u>This is underlined.</u>
@@ -290,9 +227,9 @@ There is no defined way in markdown to underline text, as a result the html `u` 
 
 [Top^](#markdown)
 
-## Superscript and subscript
+### Superscript and subscript
 
-Superscript and subscript are supported in HTML only.
+Superscript and subscript are supported in HTML only. If below the blockquote nothing is visible, unsafe HTML has been disabled.
 
 ```html
 This is<sup>superscript</sup>  
@@ -301,6 +238,28 @@ This is<sub>subscript</sub>
 
 This is<sup>superscript</sup>  
 This is<sub>subscript</sub>
+
+### Myrthos additional option
+
+The site has an additional shortcode to allow styling by means of a shortcode. This is the `mstyle` shortcode.
+
+To accomplish the same example for super and subscript, it would look like this:
+
+```go-html-template
+This is{{</* mstyle "sup" */>}}superscript{{</* /mstyle */>}}  
+This is{{</* mstyle "sub" */>}}subscript{{</* /mstyle */>}}  
+```
+
+This is{{< mstyle "sup" >}}superscript{{< /mstyle >}}  
+This is{{< mstyle "sub" >}}subscript{{< /mstyle >}}  
+
+Any existing class can be used, also more than one class can be used, like this:
+
+```go-html-template
+This is {{</* mstyle "small underline" */>}}small and underlined{{</* /mstyle */>}} text.
+```
+
+This is {{< mstyle "small underline" >}}small and underlined{{< /mstyle >}} text.  
 
 ## Lists
 
@@ -576,7 +535,7 @@ him@somewhere.net
 
 [Top^](#markdown)
 
-### Hinode extension
+### Hinode additional option
 
 Hinode supports an additional manner of showing a link by using the `link` shortcode.
 
@@ -606,7 +565,7 @@ Blockquotes are used to indent text and use the `>` character. This character ca
 > And this is the second line, which we can make very long to make sure that it wraps, so it gives us an idea of what happens in that case. In contrast to quotes, a blockquote can contain Markdown, like **bold** or *italic text*.
 <!-- markdownlint-enable MD028 -->
 
-### Hinode additional options
+### Hinode additional option
 
 The following Markdown generates a blockquote, add `{.blockquote}` at the bottom of the block to apply the correct styling.
 
@@ -768,7 +727,7 @@ A colon at both the left and right with between them at least 3 dashes, centers 
 
 The alignment of the columns in Hugo is achieved by applying a style to the HTML table columns. If however Content-Security-Policy is active, like in Hinode and on this site, the styling is blocked. Resulting in the alignment not working. Hinode provides a solution for that by adding the option to use classes.
 
-### Hinode additional options
+### Hinode additional option
 
 Hinode adds enhancements to displaying tables. Add `{.table}` at the bottom of the block to apply the correct styling. You can mix the content with inline Markdown.
 
@@ -809,10 +768,10 @@ On Hinode and this site, the above shows the proper formulas, because the `Katex
 
 ## Inline HTML
 
-it is possible to use raw html in Markdown. For the most part it will work.  
+It is possible to use raw html in Markdown. For the most part it will work.  
 Using Markdown in HTML, usually does not work very well, so it is best to use HTML tags.
 
-For security reasons, this option is disabled by default in HUGO, but enabled in Hinode by default.
+For security reasons, this option is disabled by default in HUGO, resulting in all HTML tags being removed.
 
 ```html
 <dl>
@@ -828,7 +787,7 @@ For security reasons, this option is disabled by default in HUGO, but enabled in
 
 <dt>Markdown in HTML</dt> <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd> </dl>
 
-Use the HTML element <abbr> for abbreviations and acronyms to show the expanded version on hover. Abbreviations have a default underline and gain a help cursor to provide additional context on hover and to users of assistive technologies.
+Use the HTML element `<abbr>` for abbreviations and acronyms to show the expanded version on hover. Abbreviations have a default underline and gain a help cursor to provide additional context on hover and to users of assistive technologies.
 
 ```HTML
 <p><abbr title="HyperText Markup Language">HTML</abbr></p>
