@@ -2,12 +2,12 @@
 author: Joost Mans
 title: mgallery usage
 date: 2023-07-04
-lastmod: 2023-08-21
+lastmod: 2023-08-25
 Description: Description on how to use the mgallery shortcode
 layout: docs
 showComments: false
 ---
-<!-- cSpell:ignore Joost mgallery shortcode shortcodes ovlpos ovlx ovly ovlperc frontmatter jfif webp lastmod mtag -->
+<!-- cSpell:ignore Joost mgallery shortcode shortcodes ovlpos ovlx ovly ovlperc frontmatter jfif webp lastmod mtag Hinode -->
 
 ## mgallery shortcode
 
@@ -34,6 +34,8 @@ ovlpos|Optional position of the overlay image, which can be: "left-top", "right-
 ovlx|Optional offset in pixels for the x direction of the overlay image in pixels. Will shift the image away from the corner. Not used for 'center'. Defaults to 0.
 ovly|Optional offset in pixels for the y direction of the overlay image in pixels. Will shift the image away from the corner. Not used for 'center'. Defaults to 0.
 ovlperc|Optional percentage for the size of the logo related to the size of the image. By default the logo is not resized.
+hinode|Optional setting that should be set to "false" when the shortcode is being used in a non-Hinode theme.
+window|Optional width of the window in which the gallery is to be displayed. It defaults to 1400, which is the limit of the width of the gallery. The value is also used to resize the thumbnails of the images, which are equal to the specified window width divided by the number of columns used. Setting it to a value lower than 100 only influences the width of the thumbnails. Setting it to a value larger than 1400 will make the gallery use that available space, but only when the `hinode` parameter is "false".
 {.table}
 
 The below section provides more information about the {{< link "#image-source" >}}list{{< /link >}} parameter.
