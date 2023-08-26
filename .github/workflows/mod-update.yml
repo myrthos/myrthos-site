@@ -57,5 +57,3 @@ jobs:
         add-paths: |
           go.mod
           go.sum
-          **/go.mod
-          **/go.sum
