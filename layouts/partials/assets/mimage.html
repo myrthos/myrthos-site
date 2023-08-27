@@ -84,14 +84,25 @@
     {{- $caption := .caption -}}
     {{- $credits := .credits -}}
     {{- $fallbackURL := "" -}}
+    {{- $anchor := "" }}
     {{- $imgset := "" -}}
     {{- $mode := .mode -}}
     {{- $modes := .modes -}}
     {{- $autoCaption := .autoCaption -}}
     {{- $page := .page -}}
+    {{- $isVector := false -}}
+    
+    {{- $segments := split $url "#" -}}
+    {{- if gt (len $segments) 2 -}}
+        {{- errorf "Invalid path or url: %q" $url -}}
+    {{- else if eq (len $segments) 2 }}
+        {{- $url = index $segments 0 -}}
+        {{- $anchor = index $segments 1 -}}
+    {{- end -}}
 
     {{- if hasSuffix $url "svg" -}}
         {{- $fallbackURL = $url -}}
+        {{- $isVector = true -}}        
     {{- else -}}
         {{- $img := partial "utilities/mGetImage.html" (dict "url" $url "page" $page) -}}
         {{- if $img -}}
@@ -146,15 +157,21 @@
     {{- if or $caption $credits -}}
         <figure {{ with $outerClass }}class="{{ . }}"{{ end }}>
     {{ end }}
-        <div class="{{ with $ratio }}ratio ratio-{{ . }}{{ end }}{{ if not (or $caption $credits) }} {{ $outerClass }}{{ end }}">
+    <div class="{{ with $ratio }}ratio ratio-{{ . }}{{ end }}{{ if not (or $caption $credits) }} {{ $outerClass }}{{ end }}">
+        {{- if not $anchor -}}
             <img class="img-fluid {{ $innerClass }}"
                 {{ with $imgset -}}
                 srcset="{{ . }}"
                 sizes="100vw"
                 {{- end }}
-                src="{{ absURL $fallbackURL }}"
+                src="{{ $fallbackURL }}"
                 alt="{{ $title }}">
-        </div>
+        {{- else }}
+            <svg class="{{ $innerClass }}">
+                <use href="{{ $fallbackURL }}#{{ $anchor }}"></use>
+            </svg>
+        {{ end }}
+    </div>
     {{- if or $caption $credits -}}
         <!-- Add camera to credits -->
         {{- if $credits -}}
@@ -169,7 +186,7 @@
 
         <figcaption class="figure-caption {{ $captionClass }}">{{ $caption | safeHTML }}{{ $credits | safeHTML }}</figcaption>
     </figure>
-{{- end -}}
+    {{- end -}}
 {{- end -}}
 
 <!-- Initiate the regular or color-mode image -->
