@@ -1,10 +1,33 @@
+<!-- cSpell:ignore commentsterm -->
 {{- $params := .Site.Params.comments -}}
+{{- $page := . -}}
 {{- with $params -}}
+  {{- $issueTerm := default "pathname" $params.issueTerm -}}
+  <!-- If we are using a term, default to the path/filename.
+       If in the frontmatter `commentsterm` is defined, use path/commentsterm
+       unless it is a '.', in that case only use the path -->
+  {{- with $params.issueTerm -}}
+    {{- if eq "term" . }}
+      {{- with $page.Params.commentsterm }}
+        {{- if eq "." . -}}
+          <!-- Create an issue term based on the path only -->
+          {{- $issueTerm = strings.TrimSuffix "/" $page.File.Dir -}}
+        {{- else -}}
+          <!-- Create an issue term based on the path and the commentsterm -->
+          {{- $issueTerm = printf "%s%s" $page.File.Dir . }}
+        {{- end -}}
+      {{- else -}}
+        <!-- Create an issue term based on the path and the filename -->
+        {{- $issueTerm = printf "%s%s" $page.File.Dir $page.File.BaseFileName }}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  
 <h2>{{ T "comments" }}</h2>
 <div class="d-none-light">
   <script src="https://utteranc.es/client.js"
     repo="{{ $params.repo }}"
-    issue-term="{{ default "pathname" $params.issueTerm }}"
+    issue-term="{{- $issueTerm -}}"
     label="{{ default "comment" $params.label }}"
     theme="{{ default "github-dark" $params.theme }}"
     crossorigin="anonymous"
@@ -14,7 +37,7 @@
 <div class="d-none-dark">
   <script src="https://utteranc.es/client.js"
     repo="{{ $params.repo }}"
-    issue-term="{{ default "pathname" $params.issueTerm }}"
+    issue-term="{{- $issueTerm -}}"
     label="{{ default "comment" $params.label }}"
     theme="{{ default "github-light" $params.theme }}"
     crossorigin="anonymous"
