@@ -23,25 +23,25 @@
     {{- end -}}
   {{- end -}}
   
-<h2>{{ T "comments" }}</h2>
-<div class="d-none-light">
-  <script src="https://utteranc.es/client.js"
-    repo="{{ $params.repo }}"
-    issue-term="{{- $issueTerm -}}"
-    label="{{ default "comment" $params.label }}"
-    theme="{{ default "github-dark" $params.theme }}"
-    crossorigin="anonymous"
-    async>
-  </script>
-</div>
-<div class="d-none-dark">
-  <script src="https://utteranc.es/client.js"
-    repo="{{ $params.repo }}"
-    issue-term="{{- $issueTerm -}}"
-    label="{{ default "comment" $params.label }}"
-    theme="{{ default "github-light" $params.theme }}"
-    crossorigin="anonymous"
-    async>
-  </script>
-</div>
+  <h2>{{ T "comments" }}</h2>
+  <div class="d-none-light">
+    <script src="https://utteranc.es/client.js"
+      repo="{{ $params.repo }}"
+      issue-term="{{- $issueTerm -}}"
+      label="{{ default "comment" $params.label }}"
+      theme="{{ default "github-dark" $params.theme }}"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+  <div class="d-none-dark">
+    <script src="https://utteranc.es/client.js"
+      repo="{{ $params.repo }}"
+      issue-term="{{- $issueTerm -}}"
+      label="{{ default "comment" $params.label }}"
+      theme="{{ default "github-light" $params.theme }}"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
 {{- end -}}
