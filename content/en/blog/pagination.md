@@ -12,7 +12,7 @@ thumbnail:
     origin: Unsplash
     originURL: https://unsplash.com/photos/JMATuFkXeHU
 ---
-<!-- cSpell:ignore Joost lastmod Tutunaru webp jmooring frontmatter multipage pagenumber mpfolder anotherpage thispage Hinode linenos linenostart isset errorf myproject offcanvas offcanvass inledby mpagination dropup mimage pagbut pagbutfirst pagbutlast pagarrow paglist pagdrop pagdroplist mtag -->
+<!-- cSpell:ignore Joost lastmod Tutunaru webp jmooring frontmatter multipage pagenumber mpfolder anotherpage thispage Hinode linenos linenostart isset errorf myproject offcanvas offcanvass inledby mpagination dropup mimage pagbut pagbutfirst pagbutlast pagarrow paglist pagdrop pagdroplist mtag commentsterm -->
 For the projects articles I am planning to write, I need the option to split an article over multiple pages. These pages belong together and it needs to be possible to navigate from one page to the other. On top of that it needs to have as little configuration as possible.
 
 While searching for potential ways to solve this, I found this solution by {{< link "https://github.com/jmooring/hugo-testing/tree/hugo-forum-topic-29161" >}}jmooring{{< /link >}}, which I felt was a nice solution. It is a generic solution for Hugo and I *only* had to make it work for the Hinode theme, I am using. The following describes the steps I took to accomplish this.
@@ -334,6 +334,16 @@ When the dropdown button is clicked, the list shows below the button. Page 1 is 
 
 {{< mtag "br" />}}
 For the dropup button, the list shows above the button and the triangle in that button, points up.
+
+## Comments
+
+By default each page in a multi-page article will have its own comments. It might make sense to have all pages in a multi-page article use the same set of comments. If that is required add the following to the frontmatter of each of the pages in the multi-page article:
+
+```yaml
+commentsterm : .
+```
+
+This will only work when {{< link "blog/modifications/#use-a-term-for-the-comments" >}}this change{{< /link >}} has been applied.
 
 ## Wrap-up
 

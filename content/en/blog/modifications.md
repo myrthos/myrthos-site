@@ -50,7 +50,8 @@ These are the modifications to the Content Security Policy (CSP) elements in `co
         script-src 'self' 'report-sample' https://utteranc.es/client.js https://gc.zgo.at/count.v3.js; \
         style-src 'self' 'unsafe-hashes' 'report-sample' https://utteranc.es https://www.youtube.com \
             'sha256-kFAIUwypIt04FgLyVU63Lcmp2AQimPh/TdYjy04Flxs=' 'sha256-XzJlZKVo+ff9ozww9Sr2p/2TbJXITZuaWMZ9p53zN1U=' \
-            'sha256-hqhQ1AAR6jgr9lel8hs9sNOeqSwsGx6HH+B7TkLcmyY=' 'sha256-9HupEqQsOKAA3TMVtaZh8USULhFpwYGuWFk+44sVSgg=';\
+            'sha256-hqhQ1AAR6jgr9lel8hs9sNOeqSwsGx6HH+B7TkLcmyY=' 'sha256-9HupEqQsOKAA3TMVtaZh8USULhFpwYGuWFk+44sVSgg='
+            `sha256-1EpgJ5nIw5yOjtb0quQYVzvUweFMnvzELI9pm3pgbtc=`;\
         object-src 'none'; \
         base-uri 'self'; \
         connect-src 'self' https://myrthos.goatcounter.com/count; \
@@ -107,7 +108,7 @@ In `config/_default/params.toml` change `schema`, `opengraph` and `comments` to 
 
 ## Make comments aware of the theme
 
-The comments are managed by {{< link "https://utteranc.es/" >}}Utterances{{< /link >}}. It requires the installation of a small piece of javascript that , amongst others, also specifies the theme to use. This is managed in `layouts/partials/assets/comments.html`. However this uses a fixed theme that can be specified in the `comments.theme` parameter in `config/_default/params.toml`. Because of that the theme of the comments does not change when the theme of the site is changed between dark and light.
+The comments are managed by {{< link "https://utteranc.es/" >}}Utterances{{< /link >}}. It requires the installation of a small piece of javascript that, amongst others, also specifies the theme to use. This is managed in `layouts/partials/assets/comments.html`. However this uses a fixed theme that can be specified in the `comments.theme` parameter in `config/_default/params.toml`. Because of that the theme of the comments does not change when the theme of the site is changed between dark and light.
 
 To resolve this the `theme` parameter should be set as specified in the previous paragraph. Furthermore the contents of `layouts/partials/assets/comments.html` should be replaced with:
 
@@ -137,6 +138,68 @@ To resolve this the `theme` parameter should be set as specified in the previous
 </div>
 {{- end -}}
 ```
+
+## Use a term for the comments
+
+For some article pages it would be nice to have the same set of comments on more than one page. This can be enabled by using `"term"` as the value of the `comments.issueTerm` parameter in `config/_default/params.toml`.
+
+Also the contents of `layouts/partials/assets/comments.html` needs to be replaced with the following.
+
+```go-html-template
+<!-- cSpell:ignore commentsterm -->
+{{- $params := .Site.Params.comments -}}
+{{- $page := . -}}
+{{- with $params -}}
+  {{- $issueTerm := default "pathname" $params.issueTerm -}}
+  <!-- If we are using a term, default to the path/filename.
+       If in the frontmatter `commentsterm` is defined, use path/commentsterm
+       unless it is a '.', in that case only use the path -->
+  {{- with $params.issueTerm -}}
+    {{- if eq "term" . }}
+      {{- with $page.Params.commentsterm }}
+        {{- if eq "." . -}}
+          <!-- Create an issue term based on the path only -->
+          {{- $issueTerm = strings.TrimSuffix "/" $page.File.Dir -}}
+        {{- else -}}
+          <!-- Create an issue term based on the path and the commentsterm -->
+          {{- $issueTerm = printf "%s%s" $page.File.Dir . }}
+        {{- end -}}
+      {{- else -}}
+        <!-- Create an issue term based on the path and the filename -->
+        {{- $issueTerm = printf "%s%s" $page.File.Dir $page.File.BaseFileName }}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  
+  <h2>{{ T "comments" }}</h2>
+  <div class="d-none-light">
+    <script src="https://utteranc.es/client.js"
+      repo="{{ $params.repo }}"
+      issue-term="{{- $issueTerm -}}"
+      label="{{ default "comment" $params.label }}"
+      theme="{{ default "github-dark" $params.theme }}"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+  <div class="d-none-dark">
+    <script src="https://utteranc.es/client.js"
+      repo="{{ $params.repo }}"
+      issue-term="{{- $issueTerm -}}"
+      label="{{ default "comment" $params.label }}"
+      theme="{{ default "github-light" $params.theme }}"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+{{- end -}}
+```
+
+The extra lines will offer the following option when `comments.issueTerm = "term"` is set for the issue in Github:
+
+- If in the frontmatter `commentsterm` is not set, the path and filename of the current page is used (this is the same as using `"pathname"` instead of `"term`).
+- If in the frontmatter `commentsterm: .` is set, the path to the current folder (so, excluding the filename) is used. All pages in the folder withe the same `commentsterm` will use the same set of comments.
+- If in the frontmatter `commentsterm` is set, but it is different than `.`, the path to the current folder and the `commentsterm` value is used. All pages in the folder withe the same `commentsterm` will use the same set of comments. This allows to use more than one set of comments for pages in the same folder.
 
 ## Remove multi-language support
 
