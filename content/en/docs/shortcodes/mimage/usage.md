@@ -109,23 +109,29 @@ If it is not successful `nil` is returned. There are two conditions when this ca
 
 ## _mimage classes
 
-There are a number of classes defined that can be used with the `mimage` shortcode. They are defined in `assets/scss/_mimage.scss`. The file also contains classes that are used by the `mimage` partial, which implies that the `_mimage.scss` file is a required file.
-{{< mtag "nobr" >}}text italic{{< /mtag >}}
+There are a number of classes defined that can be used with the `mimage` shortcode. They are defined in `assets/scss/_mimage.scss`.
+
 Class|Description
 ---|---
 url|Required parameter, which specifies the image to load. See also the {{< link "#image-source" >}}src{{< /link >}} parameter of the `mimage` shortcode.
 {{< mtag "nobr" >}}text-italic{{< /mtag >}}|Used for the caption text, to make it italic.
-{{< mtag "nobr" >}}caption-right{{< /mtag >}}|Align the caption and credits to the bottom right of the image.
-{{< mtag "nobr" >}}caption-center{{< /mtag >}}|Align the caption and credits to the center of the image.
-{{< mtag "nobr" >}}caption-left{{< /mtag >}}|Align the caption and credits to the left of the image.
 {{< mtag "nobr" >}}image-center{{< /mtag >}}|Center the image
 {{< mtag "nobr" >}}image-float-left{{< /mtag >}}|Place the image to the left and make text wrap around the right side of the image, when the image is smaller than the available space.
 {{< mtag "nobr" >}}image-float-right{{< /mtag >}}|Place the image to the right and make text wrap around the left side of the image, when the image is smaller than the available space.
 {{< mtag "nobr" >}}image-radius-x{{< /mtag >}}|creates rounded corners on the image. 'x' is a value from 1 to 5. Where 1 is the largest radius and 5, the smallest.
 {.table}
+{{< mtag "br" />}}
+When using the `image-float-xxxx` and `image_center` image classes, use the following classes for the caption.
 
-When the `mimage` partial is used to replace the `image` partial in an other existing Hinode partial, only the `text-italic` and `image-radius-x` classes from the above table will certainly work, as the other classes might conflict with the already used classes in that Hinode partial.  
-To still be able to align the caption properly in that case, the following classes can be used:
+Class|Description
+---|---
+url|Required parameter, which specifies the image to load. See also the {{< link "#image-source" >}}src{{< /link >}} parameter of the `mimage` shortcode.
+{{< mtag "nobr" >}}caption-right{{< /mtag >}}|Align the caption and credits to the bottom right of the image.
+{{< mtag "nobr" >}}caption-center{{< /mtag >}}|Align the caption and credits to the center of the image.
+{{< mtag "nobr" >}}caption-left{{< /mtag >}}|Align the caption and credits to the left of the image.
+{.table}
+{{< mtag "br" />}}
+When **not** using the `image-float-xxxx` and `image_center` image classes, use the following classes for the caption.
 
 Class|Description
 ---|---

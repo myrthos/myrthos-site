@@ -393,6 +393,7 @@
       "changes-to-the-default-layout",
       "code-explanation",
       "color-changes",
+      "comments",
       "configuration",
       "copyrighted-material",
       "creating-thumbnails",
@@ -426,7 +427,8 @@
       "home-page-changes",
       "how-myrthos-was-born",
       "image-source",
-      "installation",
+      "installation-in-a-hinode-theme",
+      "installation-in-a-non-hinode-theme",
       "installation-to-a-hugo-site",
       "installation-to-a-site-not-using-the-hinode-template",
       "installation-to-a-site-using-the-hinode-template",
@@ -500,6 +502,7 @@
       "update-sharing-providers",
       "using-peripheral-pins",
       "using-the-configurable-logic-cells",
+      "use-a-term-for-the-comments",
       "wrap-up"
     ]
   }
