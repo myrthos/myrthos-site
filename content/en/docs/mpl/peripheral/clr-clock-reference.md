@@ -24,7 +24,7 @@ Enables the clock reference module. Note that this is only needed after the [MPL
 
 ---------------------------------------
 
-### MPLCLR_INIT(divider, duty)
+### MPLCLR_INIT(divider, duty) {#mplclr_init}
 
 Initializes the clock reference by using a divider and a duty cycle. Depending on the controller being used, the input clock can be changed, but after initialization it is set to the Fosc clock frequency. The clock reference is also stopped after initialization (if it was running before).
 
@@ -64,7 +64,7 @@ See [MPLCLK_SOURCE](mplclr_source)
 
 ---------------------------------------
 
-### MPLCLR_SOURCE(src)
+### MPLCLR_SOURCE(src) {#mplclr_source}
 
 {{< mstyle "underline" >}}This macro is only supported on the 16(L)F153xx series controllers{{< /mstyle >}}.
 
@@ -111,7 +111,7 @@ MPLCLR_START;
 
 ---------------------------------------
 
-### MPLCLR_POUT(pin)
+### MPLCLR_POUT(pin) {#mplclr_pout}
 
 Defines the output pin that will be used to output the clock reference on.
 

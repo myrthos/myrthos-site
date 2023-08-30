@@ -12,8 +12,7 @@
     - title: CLC {{< mstyle "small" >}}Configurable Logic Cell{{< /mstyle >}}
     - title: CLK {{< mstyle "small" >}}Clock Circuitry{{< /mstyle >}}
     - title: CLR {{< mstyle "small" >}}Clock Reference{{< /mstyle >}}
-    - title: CRC {{< mstyle "small" >}}Cyclic Redund. Check{{< /mstyle >}}
-    - title: CTM {{< mstyle "small" >}}Capacitive Touch Mod.{{< /mstyle >}}
+    - title: INT {{< mstyle "small" >}}Interrupts{{< /mstyle >}}
     - title: IOC {{< mstyle "small" >}}Interrupt on Change{{< /mstyle >}}
     - title: NVM {{< mstyle "small" >}}Non Volatile Memory{{< /mstyle >}}
     - title: PER {{< mstyle "small" >}}Peripheral{{< /mstyle >}}
