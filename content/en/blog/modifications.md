@@ -197,11 +197,9 @@ Also the contents of `layouts/partials/assets/comments.html` needs to be replace
 
 The extra lines will offer the following option when `comments.issueTerm = "term"` is set for the issue in Github:
 
-- If in the frontmatter `commentsterm` is not set the path and filename of the current page is used (this is the same as using `"pathname"` instead of `"term`).
-- If in the frontmatter `commentsterm: .` is set, the path to the current page (excluding the filename) is used.
-- If in the frontmatter `commentsterm` is set, but it is different than `.`, the path and the `commentsterm` value is used.
-
-The last two options can be used when more than one page needs to show the same comments.
+- If in the frontmatter `commentsterm` is not set, the path and filename of the current page is used (this is the same as using `"pathname"` instead of `"term`).
+- If in the frontmatter `commentsterm: .` is set, the path to the current folder (so, excluding the filename) is used. All pages in the folder withe the same `commentsterm` will use the same set of comments.
+- If in the frontmatter `commentsterm` is set, but it is different than `.`, the path to the current folder and the `commentsterm` value is used. All pages in the folder withe the same `commentsterm` will use the same set of comments. This allows to use more than one set of comments for pages in the same folder.
 
 ## Remove multi-language support
 
