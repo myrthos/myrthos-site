@@ -34,7 +34,7 @@ Controller|Supported
 
 EXAMPLE
 
-See [MPLCLC_X_ENABLE](#mplclc_enable)
+See [MPLCLC_X_ENABLE](#mplclc_x_enable)
 
 ---------------------------------------
 

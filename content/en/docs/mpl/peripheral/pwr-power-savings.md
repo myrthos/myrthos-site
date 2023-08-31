@@ -19,11 +19,13 @@ This macro sets the power saving mode that is to be used.
 *mode*  
 The power saving mode to be used. The following modes are supported:
 
+{{< table "table-striped table-bordered" >}}
 Define                   |Timer
 :-----------------------:|:---:
 MPLPWR_MODE_IDLE         |Idle mode
 MPLPWR_MODE_SLEEP_NORMAL |Sleep mode
 MPLPWR_MODE_SLEEP_LOW    |Sleep mode with low internal power
+{{< /table >}}
 
 In idle mode, the CPU and memory operations are halted, but the peripheral clocks continue to run, when using one of the following clocks: Fosc, HFINTOSC, LFINTOSC or SOSC.
 Normal sleep mode, is like idle mode, but Fosc is also disabled.

@@ -199,4 +199,4 @@ If **_XTAL_FREQ** is defined with the correct frequency in *mplconfig.h*, and th
 The time to wait for in microseconds, entered as an **uint16_t**.
 
 If **_XTAL_FREQ** is defined with the correct frequency in *mplconfig.h*, an internal delay function is called, which will wait for 1 microsecond in a loop. This means there is a small overhead that with short duration values and low clock frequencies, results in a small inaccuracy.  
-If **_XTAL_FREQ** is not defined in *mplconfig.h*, the [MPLCLK_DELAYMS](#mplclk_ms) macro is called, with the duration value divided by 1000.
+If **_XTAL_FREQ** is not defined in *mplconfig.h*, the [MPLCLK_DELAYMS](#mplclk_delayms) macro is called, with the duration value divided by 1000.

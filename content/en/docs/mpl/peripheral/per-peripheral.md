@@ -6,7 +6,7 @@ lastmod: 2023-08-23
 Description: Overview of the PER functionality.
 layout: docs
 --- 
-<!-- cSpell:ignore Joost lastmod MCLRE MLPPER MPLPER MLPER mplpic -->
+<!-- cSpell:ignore Joost lastmod MCLRE MLPPER MPLPER MLPER mplpic mtag -->
 
 The following gives an overview of the available macros and other defines for working with the I/O pins of the supported PIC controllers as a source or output of the different PIC modules. This is supported for the controllers of the following series:
 
@@ -58,8 +58,11 @@ Several modules can use an input pin of the controller to drive some of its func
 
 The following is an overview of the supported I/O pins per controller:
 
-  Parameter  |     Pin     |PIC16(L)F15313|PIC16(L)F1532x|PIC16(L)F1534x|PIC16(L)F1535x|PIC16(L)F1537x|PIC16(L)F1538x|
-:-----------:|:-----------:|:------------:|:------------:|:------------:|:------------:|:------------:|:------------:|
+### Inputs for PIC16(L)F153xx
+
+{{< table "table-striped table-bordered" >}}
+  Parameter  |     Pin     |15313|1532x|1534x|1535x|1537x|1538x|
+:-----------:|:-----------:|:---:|:---:|:---:|:---:|:---:|:---:|
 MPLPER_IN_RF7|RF7&nbsp;input    | | | | | |x|
 MPLPER_IN_RF6|RF6&nbsp;input    | | | | | |x|
 MPLPER_IN_RF5|RF5&nbsp;input    | | | | | |x|
@@ -103,11 +106,14 @@ MPLPER_IN_RA3|RA3&nbsp;input[^1]|x|x|x|x|x|x|
 MPLPER_IN_RA2|RA2&nbsp;input    |x|x|x|x|x|x|
 MPLPER_IN_RA1|RA1&nbsp;input    |x|x|x|x|x|x|
 MPLPER_IN_RA0|RA0&nbsp;input    |x|x|x|x|x|x|
-{.table .table-striped .table-bordered}
-
 [^1]: RA3 is only available as an input pin (15313/1532x/1534x) when in the configuration words, MCLRE is set to OFF and LVP is set to OFF. In other cases it is not available
+{{< /table >}}
+{{< mtag "br" />}}
 
-  Parameter  |     Pin     |PIC16(L)F18313|PIC16(L)F1832x|PIC16(L)F1834x|
+### Inputs for PIC16(L)F183xx
+
+{{< table "table-striped table-bordered" >}}
+  Parameter  |     Pin     |18313|1832x|1834x|
 :-----------:|:-----------:|:------------:|:------------:|:------------:|
 MPLPER_IN_RC7|RC7&nbsp;input    | | |x|
 MPLPER_IN_RC6|RC6&nbsp;input    | | |x|
@@ -127,13 +133,15 @@ MPLPER_IN_RA3|RA3&nbsp;input[^2]|x|x|x|
 MPLPER_IN_RA2|RA2&nbsp;input    |x|x|x|
 MPLPER_IN_RA1|RA1&nbsp;input    |x|x|x|
 MPLPER_IN_RA0|RA0&nbsp;input    |x|x|x|
-{.table .table-striped .table-bordered}
-
 [^2]: RA3 is only available as an input pin when in the configuration words, MCLRE is set to OFF and LVP is set to OFF. In other cases it is not available
+{{< /table >}}
+{{< mtag "br" />}}
+
+### Outputs for PIC16(L)F153xx
 
 {{< table "table-striped table-bordered" >}}
-  Parameter   |    Pin   |PIC16(L)F15313|PIC16(L)F1532x|PIC16(L)F1534x|PIC16(L)F1535x|PIC16(L)F1537x|PIC16(L)F1538x|
-:------------:|:--------:|:------------:|:------------:|:------------:|:------------:|:------------:|:------------:|
+  Parameter   |    Pin   |15313|1532x|1534x|1535x|1537x|1538x|
+:------------:|:--------:|:---:|:---:|:---:|:---:|:---:|:---:|
 MPLPER_OUT_RF7|RF7&nbsp;output| | | | | |x|
 MPLPER_OUT_RF6|RF6&nbsp;output| | | | | |x|
 MPLPER_OUT_RF5|RF5&nbsp;output| | | | | |x|
@@ -178,10 +186,13 @@ MPLPER_OUT_RA2|RA2&nbsp;output|x|x|x|x|x|x|
 MPLPER_OUT_RA1|RA1&nbsp;output|x|x|x|x|x|x|
 MPLPER_OUT_RA0|RA0&nbsp;output|x|x|x|x|x|x|
 {{< /table >}}
+{{< mtag "br" />}}
+
+### Outputs for PIC16(L)F183xx
 
 {{< table "table-striped table-bordered" >}}
-  Parameter   |    Pin   |PIC16(L)F18313|PIC16(L)F1832x|PIC16(L)F1834x|
-:------------:|:--------:|:------------:|:------------:|:------------:|
+  Parameter   |    Pin   |18313|1832x|1834x|
+:------------:|:--------:|:---:|:---:|:---:|
 MPLPER_OUT_RC7|RC7&nbsp;output| | |x|
 MPLPER_OUT_RC6|RC6&nbsp;output| | |x|
 MPLPER_OUT_RC5|RC5&nbsp;output| |x|x|
@@ -201,6 +212,7 @@ MPLPER_OUT_RA2|RA2&nbsp;output|x|x|x|
 MPLPER_OUT_RA1|RA1&nbsp;output|x|x|x|
 MPLPER_OUT_RA0|RA0&nbsp;output|x|x|x|
 {{< /table >}}
+{{< mtag "br" />}}
 
 ---------------------------------------
 
