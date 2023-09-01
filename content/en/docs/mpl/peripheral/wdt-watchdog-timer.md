@@ -35,7 +35,7 @@ This enables to start and stop the watchdog timer in software
 
 ### MPLWDT_CLEAR
 
-Resets the watchdog timer, after which it starts counting again. When the windowed mode is supported by the used controller and active (window is less than 100%, see [MPL_WDT_WINDOW](#mplwdt_window)), this macro needs to be called when the window is open. If this macro is called when the window is closed, a window violation will occur and a reset will be generated.
+Resets the watchdog timer, after which it starts counting again. When the windowed mode is supported by the used controller and active (window is less than 100%, see [MPLWDT_WINDOW](#mplwdt_window)), this macro needs to be called when the window is open. If this macro is called when the window is closed, a window violation will occur and a reset will be generated.
 
 In the case of the window to be less than 100%, the watchdog timer also needs to be armed. This is accomplished by calling [MPLWDT_START](#mplwdt_start).
 
@@ -45,7 +45,7 @@ See [MPLWDT_WINDOW](#mplwdt_window)
 
 ---------------------------------------
 
-### MPLWDT_INIT(timer) {#mpl_init}
+### MPLWDT_INIT(timer) {#mplwdt_init}
 
 Initializes the watchdog timer module with a timer duration. The watchdog timer counts up to the value that is set and will reset the controller when it reaches the specified timer value. To restart the watchdog timer and prevent the reset to happen, the macro [MPLWDT_CLEAR](#mplwdt_clear) needs to be called, which will reset the watchdog, after which it starts counting again until the specified time has expired, or another call to the MPLWDT_CLEAR macro is made. After a reset the default timeout period is 2 seconds.
 
