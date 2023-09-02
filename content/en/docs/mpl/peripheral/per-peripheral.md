@@ -15,8 +15,6 @@ The following gives an overview of the available macros and other defines for wo
 
 In order to be able to set the I/O pins properly, the controller configuration pragma for the `PPS1WAY` configuration bit is to be set to `OFF`. This is part of the configuration pragmas that need to be set before the file `xc.h` or `mplpic.h` (which includes `xc.h`) is included in the main source file.
 
-[TOC]
-
 ## Using Peripheral pins
 
 There are two macros defined that need to be used for working with the PPS pins. These macros unlock the Peripheral Pin Select (PPS) to enable making changes, and after all changes are made, lock it again so it prevents changes being made after that.
