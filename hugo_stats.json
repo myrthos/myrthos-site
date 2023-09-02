@@ -167,7 +167,6 @@
       "fa-fluid",
       "fa-fw",
       "fa-github",
-      "fa-link",
       "fa-linkedin",
       "fa-mastodon",
       "fa-moon",
@@ -182,6 +181,7 @@
       "fa-wrapper",
       "fa-x-twitter",
       "fa-xl",
+      "fa-sun",
       "fab",
       "fas",
       "feature",
@@ -221,6 +221,7 @@
       "image-float-right",
       "image-radius-1",
       "image-radius-3",
+      "h-100",
       "img-fluid",
       "img-wrap",
       "invisible",
@@ -243,6 +244,7 @@
       "mb-4",
       "mb-5",
       "mb-lg-5",
+      "mb-4",
       "me-auto",
       "middle-bar",
       "min-vh-100",
@@ -302,6 +304,7 @@
       "py-1",
       "py-2",
       "py-3",
+      "py-5",
       "py-md-1",
       "ratio",
       "ratio-1x1",
@@ -355,6 +358,10 @@
       "text-sm-start",
       "text-start",
       "text-uppercase",
+      "text-center",
+      "text-decoration-none",
+      "text-secondary",
+      "text-sm-start",
       "theme-icon",
       "theme-icon-active",
       "toast",
@@ -545,6 +552,7 @@
       "using-peripheral-pins",
       "using-the-configurable-logic-cells",
       "wrap-up"
+      "toast-copied-code-message"
     ]
   }
 }
