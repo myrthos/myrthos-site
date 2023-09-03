@@ -117,7 +117,7 @@ See [MPLWDT_WINDOW](#mplwdt_window)
 
 ### MPLWDT_WINDOW(window) {#mplwdt_window}
 
-{{< mstyle "underline" >}}This macro is only supported by the following controller series: 16F153xx.{{< /mstyle >}}
+{{< mstyle "underline" >}}This macro is only supported by the following controller series: 16F153xx{{< /mstyle >}}.
 
 Next to setting a timer value for the watchdog, it is also possible to set a window that specifies the range in which it is allowed that a [MPLWDT_CLEAR](#mplwdt_clear) call is made. if the MPLWDT_CLEAR macro is called outside of that window a window violation occurs and the controller is reset. See also the next image.
 ![alt text](images/wwdt.jpg "Windowed Watchdog Timer")  
