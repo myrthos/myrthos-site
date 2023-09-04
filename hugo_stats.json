@@ -48,7 +48,8 @@
       "time",
       "title",
       "tr",
-      "ul"
+      "ul",
+      "wbr"
     ],
     "classes": [
       "active",
@@ -346,9 +347,11 @@
       "text-bg-body",
       "text-body",
       "text-body-secondary",
+      "text-break",
       "text-center",
       "text-decoration-none",
       "text-end",
+      "text-indent",
       "text-italic",
       "text-right",
       "text-secondary",
@@ -377,6 +380,7 @@
       "TableOfContents",
       "_mimage-classes",
       "add-documentation-set-name-to-toc",
+      "add-extra-word-break-options-for-table-of-contents",
       "adding-a-gallery-section",
       "adding-an-overlay-image",
       "adding-goatcounter-as-analytics-tool",
