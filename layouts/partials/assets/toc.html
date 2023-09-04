@@ -1,11 +1,16 @@
 {{ $items := len (findRE "<li.*?>(.|\n)*?</li>" .TableOfContents) -}}
 {{ if (gt $items 1) -}}
-    <div class="toc toc-sidebar mb-5 my-md-0 ps-xl-3 mb-lg-5 p-3 text-body-secondary sticky-top">
+    <div class="toc toc-sidebar mb-5 my-md-0 ps-xl-3 mb-lg-5 p-3 text-body-secondary sticky-top text-break text-indent">
         <strong class="d-block h6 my-2 pb-2 border-bottom">{{ T "toc" }}</strong>
-        {{ if .Params.functions }}
-            {{ .TableOfContents | replaceRE `\(.*?\)` "" | safeHTML }}
-        {{ else }}
-            {{ .TableOfContents }}
+        {{ $toc := .TableOfContents }}
+        {{ if .Params.tocBreakUnderscore }}
+            {{ $toc = replace $toc "_" "_<wbr>" | safeHTML }}
         {{ end }}
+        {{ if .Params.tocHideParenthesis }}
+            {{ $toc = replaceRE `\(.*?\)` "" $toc | safeHTML }}
+        {{ else if .Params.tocBreakParenthesis }}
+            {{ $toc = replace $toc "(" "<wbr>(" | safeHTML }}
+        {{ end }}
+        {{ $toc }}
     </div>
 {{ end -}}

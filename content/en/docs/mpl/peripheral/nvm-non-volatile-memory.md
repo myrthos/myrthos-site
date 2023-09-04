@@ -5,7 +5,8 @@ date: 2023-08-30
 lastmod: 2023-08-30
 Description: Overview of the NVM functionality.
 layout: docs
-functions: true
+tocBreakParenthesis: true
+tocBreakUnderscore: true
 --- 
 <!-- cSpell:ignore Joost lastmod eeprom mplnvm mplmodnvm resetvector usermem intvector fmem fsize pbuffer blocksize userid devid revid vref tmph afvr cfvr ersiz wlsiz ursiz eesiz pcnt emem esize -->
 

@@ -5,6 +5,8 @@ date: 2023-08-30
 lastmod: 2023-08-30
 Description: Overview of the CLK functionality.
 layout: docs
+tocBreakParenthesis: true
+tocBreakUnderscore: true
 --- 
 <!-- cSpell:ignore Joost lastmod mplclk mplmodclk fosc delayms xtal mplconfig herz delayus -->
 

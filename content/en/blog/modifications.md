@@ -1200,3 +1200,44 @@ with:
                                                              "positions" 4) }}
 </div>
 ```
+
+## Add extra word-break options for Table of Contents
+
+The table of contents, at the right hand side currently wraps long text on a space and a hyphen. For showing functions properly in the table of contents, I also needed a break on an underscore `_` and a parenthesis `(`.  
+This has been made configurable per page and the code in `layouts/partials/assets/toc.html` needs to be completely replaced with the following:
+
+```go-html-template
+{{ $items := len (findRE "<li.*?>(.|\n)*?</li>" .TableOfContents) -}}
+{{ if (gt $items 1) -}}
+    <div class="toc toc-sidebar mb-5 my-md-0 ps-xl-3 mb-lg-5 p-3 text-body-secondary sticky-top text-break text-indent">
+        <strong class="d-block h6 my-2 pb-2 border-bottom">{{ T "toc" }}</strong>
+        {{ $toc := .TableOfContents }}
+        {{ if .Params.tocBreakUnderscore }}
+            {{ $toc = replace $toc "_" "_<wbr>" | safeHTML }}
+        {{ end }}
+        {{ if .Params.tocHideParenthesis }}
+            {{ $toc = replaceRE `\(.*?\)` "" $toc | safeHTML }}
+        {{ else if .Params.tocBreakParenthesis }}
+            {{ $toc = replace $toc "(" "<wbr>(" | safeHTML }}
+        {{ end }}
+        {{ $toc }}
+    </div>
+{{ end -}}
+```
+
+This will add the following options that can be set to true or false (default) in the frontmatter of a page:
+
+- `tocBreakUnderscore`
+  If true, will break the word also at an underscore `_`.
+- `tocBreakParenthesis`
+  If true, will break the word also at an opening parenthesis `(`.
+- `tocHideParenthesis`
+  If true, will remove everything within an opening `(` and closing parenthesis `)`, including the opening and closing parenthesis. Additionally, the `tocBreakParenthesis` parameter is ignored.
+
+Also the lines that wrap will be indented. For this the following class definition is to be added to `assets/scss/theme.scss`:
+
+```css
+.text-indent {
+    text-indent: -6px;
+}
+```
