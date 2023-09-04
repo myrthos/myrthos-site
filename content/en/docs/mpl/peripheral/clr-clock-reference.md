@@ -122,7 +122,7 @@ Note that the pin has to be defined as an output, prior to using this macro. Als
 
 EXAMPLE
 
-See [MPLCLK_SOURCE](#mplclr_source)
+See [MPLCLR_SOURCE](#mplclr_source)
 
 ---------------------------------------
 
@@ -132,7 +132,7 @@ Starts the generation of the reference clock and if set, outputs the frequency o
 
 EXAMPLE
 
-See [MPLCLK_SOURCE](#mplclr_source)
+See [MPLCLR_SOURCE](#mplclr_source)
 
 ---------------------------------------
 
