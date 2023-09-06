@@ -5,14 +5,14 @@ date: 2023-08-30
 lastmod: 2023-08-30
 Description: Overview of the WDT functionality.
 layout: docs
-tocBreakParenthesis: true
+tocHideParenthesis: true
 tocBreakUnderscore: true
 --- 
 <!-- cSpell:ignore Joost lastmod mplwdt wdtcps wdtcws wdtccs wdte swdten mplwt -->
 
 The following gives an overview of the available macros and other defines for the Watchdog Timer module of the supported PIC controllers.
 
-## Macros for WDT
+## Macros for Watchdog
 
 ### Configuration pragmas
 

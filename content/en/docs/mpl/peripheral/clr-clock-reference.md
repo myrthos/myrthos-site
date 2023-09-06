@@ -5,6 +5,8 @@ date: 2023-08-23
 lastmod: 2023-08-23
 Description: Overview of the CLR functionality.
 layout: docs
+tocHideParenthesis: true
+tocBreakUnderscore: true
 --- 
 <!-- cSpell:ignore Fosc Joost lastmod MPLCLK HFINTOSC LFINTOSC MFINTOSC MPLCLR mplclr MPLPER mplpic Secundary SOSC -->
 

@@ -5,6 +5,8 @@ date: 2023-08-30
 lastmod: 2023-08-30
 Description: Overview of the PWR functionality.
 layout: docs
+tocHideParenthesis: true
+tocBreakUnderscore: true
 --- 
 <!-- cSpell:ignore Joost lastmod mplpwr fosc hfintosc lfintosc sosc -->
 

@@ -5,6 +5,8 @@ date: 2023-08-30
 lastmod: 2023-08-30
 Description: Overview of the IOC functionality.
 layout: docs
+tocHideParenthesis: true
+tocBreakUnderscore: true
 --- 
 <!-- cSpell:ignore Joost lastmod mplioc -->
 

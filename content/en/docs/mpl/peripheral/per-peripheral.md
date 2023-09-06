@@ -5,6 +5,7 @@ date: 2023-08-23
 lastmod: 2023-08-23
 Description: Overview of the PER functionality.
 layout: docs
+tocHideParenthesis: true
 tocBreakUnderscore: true
 --- 
 <!-- cSpell:ignore Joost lastmod MCLRE MLPPER MPLPER MLPER mplpic mtag -->
