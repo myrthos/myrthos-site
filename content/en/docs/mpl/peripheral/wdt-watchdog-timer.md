@@ -8,7 +8,7 @@ layout: docs
 tocHideParenthesis: true
 tocBreakUnderscore: true
 --- 
-<!-- cSpell:ignore Joost lastmod mplwdt wdtcps wdtcws wdtccs wdte swdten mplwt -->
+<!-- cSpell:ignore Joost lastmod mplwdt wdtcps wdtcws wdtccs wdte swdten mplwt mimage wwdt -->
 
 The following gives an overview of the available macros and other defines for the Watchdog Timer module of the supported PIC controllers.
 
@@ -122,7 +122,7 @@ See [MPLWDT_WINDOW](#mplwdt_window)
 {{< mstyle "underline" >}}This macro is only supported by the following controller series: 16F153xx{{< /mstyle >}}.
 
 Next to setting a timer value for the watchdog, it is also possible to set a window that specifies the range in which it is allowed that a [MPLWDT_CLEAR](#mplwdt_clear) call is made. if the MPLWDT_CLEAR macro is called outside of that window a window violation occurs and the controller is reset. See also the next image.
-![alt text](images/wwdt.jpg "Windowed Watchdog Timer")  
+{{< mimage src="img/wwdt.jpg" title="Windowed Watchdog Timer" outer="image-center" >}}
 
 *window*  
 The duration of the window period relative to the total duration. Only in this valid window period an MPLWT_CLEAR is allowed to be used. The following are the allowed values.
