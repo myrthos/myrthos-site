@@ -54,8 +54,6 @@ github.com/gethinode/mod-katex v1.0.1 h1:809QUztxmKgMNchU+v03iMO7Ma+ISc3ZzhXYauc
 github.com/gethinode/mod-katex v1.0.1/go.mod h1:byAfpI3wuqNJIooTGVEGc1cjBhhCy4+CcK1H6495MYg=
 github.com/gethinode/mod-katex v1.0.2 h1:pIG4n3qLl/IVe7BEiwn+GL8r5lOCtF6FDxlcrPKdAXk=
 github.com/gethinode/mod-katex v1.0.2/go.mod h1:byAfpI3wuqNJIooTGVEGc1cjBhhCy4+CcK1H6495MYg=
-github.com/gethinode/mod-leaflet v0.3.4 h1:oY+YQ0JiJuhFQNrk9XgFdg0NMsTUQPXNfnILp4ia4r4=
-github.com/gethinode/mod-leaflet v0.3.4/go.mod h1:uGggt87x4Fw7wBoJpSiUvNkYg+s/Ujne7klAX2rxMRk=
 github.com/myrthos/mod-mgallery v0.1.1 h1:mU6FwSL5sFv6zEWHflOAeWuoFrr4800tPx+bDOU5Or8=
 github.com/myrthos/mod-mgallery v0.1.1/go.mod h1:VqXPYp9gY+dxGQw+TP9zVgqgEHJFvlhL8Hhzar8CZAs=
 github.com/myrthos/mod-mgallery v0.1.2 h1:E49B5vneFLT1cc+f3W7oV0W9xbWd5Ld4IIw3+idIOOI=
