@@ -4,6 +4,10 @@ github.com/gethinode/mod-bootstrap v1.1.0 h1:BbalsW8kmFhv+J+dcc41TGcjIlM/p69AB0h
 github.com/gethinode/mod-bootstrap v1.1.0/go.mod h1:DcpPc2cNaXUPGEvhD7npuEEPA7573NvakTlrwFbyjr8=
 github.com/gethinode/mod-bootstrap v1.1.1 h1:Tx4M5hGVOFrEaxnUONDAm6N9xuRi5UphKlT7F26HujU=
 github.com/gethinode/mod-bootstrap v1.1.1/go.mod h1:DcpPc2cNaXUPGEvhD7npuEEPA7573NvakTlrwFbyjr8=
+github.com/gethinode/mod-bootstrap v1.2.0 h1:JkTcImU3qpi25WgKvUxUYiMoiXtrxrG+Wf/utRB5UbU=
+github.com/gethinode/mod-bootstrap v1.2.0/go.mod h1:DcpPc2cNaXUPGEvhD7npuEEPA7573NvakTlrwFbyjr8=
+github.com/gethinode/mod-bootstrap v1.2.1 h1:z54dgsbhShhlri+X77Z+yLrg0wz/f8C8ojA/wnlhsJc=
+github.com/gethinode/mod-bootstrap v1.2.1/go.mod h1:DcpPc2cNaXUPGEvhD7npuEEPA7573NvakTlrwFbyjr8=
 github.com/gethinode/mod-flexsearch v1.0.1 h1:FJkRsUzSnQTXl3MWCigT4E6vfff870UWTnkGqaDGIhA=
 github.com/gethinode/mod-flexsearch v1.0.1/go.mod h1:TXbGbWsvmhBdsTzRt887mcpFfr4ORpzG3+h/l4W3YM4=
 github.com/gethinode/mod-flexsearch v1.1.0 h1:7BCMyQDlYlskNXuazt8Jg/jg9WREexu2xVkYqThkAX4=
@@ -22,6 +26,8 @@ github.com/gethinode/mod-flexsearch v1.3.0 h1:RbfEDw219Y1rOVp9lHmy5ePdF9lyPalDu2
 github.com/gethinode/mod-flexsearch v1.3.0/go.mod h1:TXbGbWsvmhBdsTzRt887mcpFfr4ORpzG3+h/l4W3YM4=
 github.com/gethinode/mod-flexsearch v1.4.0 h1:5e/NVRLyWzUZ9fO/fNsM5o+O7nw+xyln2rfEOtbgfWc=
 github.com/gethinode/mod-flexsearch v1.4.0/go.mod h1:TXbGbWsvmhBdsTzRt887mcpFfr4ORpzG3+h/l4W3YM4=
+github.com/gethinode/mod-flexsearch v1.4.1 h1:z+GKvhJ4v6BsZsWVZRgbO9WcmSZEVUkb3Q9a09yXtd8=
+github.com/gethinode/mod-flexsearch v1.4.1/go.mod h1:TXbGbWsvmhBdsTzRt887mcpFfr4ORpzG3+h/l4W3YM4=
 github.com/gethinode/mod-fontawesome v1.0.2 h1:ZSK6D20/w4y5GnfYfTBB58uHD0ChIfkpKfRGwioS9rg=
 github.com/gethinode/mod-fontawesome v1.0.2/go.mod h1:Ki1qkWEOiF0hQpCgWeZRw+HkpL6nd1DxKFptU0O2feI=
 github.com/gethinode/mod-fontawesome v1.1.0 h1:rsDzUI+3ZlS/do2ff3ne8/z3KwHeysmuA+WsXlumXXk=
@@ -40,6 +46,8 @@ github.com/gethinode/mod-fontawesome v1.2.5 h1:RqkLRj6+s+gM4nKd0IwNMMDA8cRmxfp0f
 github.com/gethinode/mod-fontawesome v1.2.5/go.mod h1:Ki1qkWEOiF0hQpCgWeZRw+HkpL6nd1DxKFptU0O2feI=
 github.com/gethinode/mod-fontawesome v1.3.1 h1:EdnBuG2B+bi06OcYmcL1NfSxHpRMEGu8TXUqEEpVH4g=
 github.com/gethinode/mod-fontawesome v1.3.1/go.mod h1:Ki1qkWEOiF0hQpCgWeZRw+HkpL6nd1DxKFptU0O2feI=
+github.com/gethinode/mod-fontawesome v1.3.2 h1:qLJSbAFR2T33BuBtC2Iulm9wZql3cy7AhXjxc2YGzBU=
+github.com/gethinode/mod-fontawesome v1.3.2/go.mod h1:Ki1qkWEOiF0hQpCgWeZRw+HkpL6nd1DxKFptU0O2feI=
 github.com/gethinode/mod-katex v1.0.0 h1:me/3dIIZBkfk1mRIFt8QiAGYwYDoSG5bc2hHRtIutFc=
 github.com/gethinode/mod-katex v1.0.0/go.mod h1:byAfpI3wuqNJIooTGVEGc1cjBhhCy4+CcK1H6495MYg=
 github.com/gethinode/mod-katex v1.0.1 h1:809QUztxmKgMNchU+v03iMO7Ma+ISc3ZzhXYauc21rs=
