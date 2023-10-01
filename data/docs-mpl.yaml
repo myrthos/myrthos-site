@@ -4,16 +4,16 @@
 - title: Introduction
   pages:
     - title: Overview
-    - title: Installation
-    - title: Usage
+    #- title: Installation
+    #- title: Usage
 
 - title: Analog
   pages:
     - title: ADC {{< mstyle "small" >}}Analog to Digital Converter{{< /mstyle >}}
-    - title: CMP {{< mstyle "small" >}}Comparator{{< /mstyle >}}
-    - title: DAC {{< mstyle "small" >}}Digital to Analog Converter{{< /mstyle >}}
-    - title: FVR {{< mstyle "small" >}}Fixed Voltage Regulator{{< /mstyle >}}
-    - title: TMP {{< mstyle "small" >}}Temperature Indicator{{< /mstyle >}}
+    #- title: CMP {{< mstyle "small" >}}Comparator{{< /mstyle >}}
+    #- title: DAC {{< mstyle "small" >}}Digital to Analog Converter{{< /mstyle >}}
+    #- title: FVR {{< mstyle "small" >}}Fixed Voltage Regulator{{< /mstyle >}}
+    #- title: TMP {{< mstyle "small" >}}Temperature Indicator{{< /mstyle >}}
 
 - title: Peripheral
   pages:
