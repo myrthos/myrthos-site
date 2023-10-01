@@ -1,19 +1,15 @@
 # toml-docs-start netlify
 [build]
     publish = "public"
-    # functions = "functions"
-
-[build.environment]
-    NODE_VERSION = "18.17.0"
-    NPM_VERSION = "9.6.7"
-
-[context.production]
     command = "npm run build"
 
-[context.production.environment]
-    HUGO_VERSION = "0.114.0"
+[build.environment]
+    DART_SASS_VERSION = "1.68.0"
+    HUGO_VERSION = "0.118.2"
     HUGO_ENV = "production"
     HUGO_ENABLEGITINFO = "true"
+    NODE_VERSION = "18.18.0"
+    NPM_VERSION = "9.8.1"
 # toml-docs-end netlify
 
 [[headers]] 
@@ -29,14 +25,14 @@
             style-src 'self' 'unsafe-hashes' 'report-sample' https://utteranc.es https://www.youtube.com \
                 'sha256-kFAIUwypIt04FgLyVU63Lcmp2AQimPh/TdYjy04Flxs=' 'sha256-XzJlZKVo+ff9ozww9Sr2p/2TbJXITZuaWMZ9p53zN1U=' \
                 'sha256-hqhQ1AAR6jgr9lel8hs9sNOeqSwsGx6HH+B7TkLcmyY=' 'sha256-9HupEqQsOKAA3TMVtaZh8USULhFpwYGuWFk+44sVSgg=' \
-                'sha256-uVrOu323DbALvO9XLsXSo1N3peMVuTC/lcentqDkW8A=' `sha256-1EpgJ5nIw5yOjtb0quQYVzvUweFMnvzELI9pm3pgbtc=';\
+                'sha256-uVrOu323DbALvO9XLsXSo1N3peMVuTC/lcentqDkW8A=' 'sha256-1EpgJ5nIw5yOjtb0quQYVzvUweFMnvzELI9pm3pgbtc=';\
             object-src 'self'; \
             base-uri 'self'; \
             connect-src 'self' https://myrthos.goatcounter.com/count; \
             font-src 'self' ; \
             frame-src 'self' https://utteranc.es https://www.youtube-nocookie.com https://www.youtube.com; \
             frame-ancestors 'none'; \
-            img-src 'self' data: https://i.vimeocdn.com https://i.ytimg.com https://img.youtube.com https://myrthos.goatcounter.com/count; \
+            img-src 'self' data: https://i.vimeocdn.com https://i.ytimg.com https://img.youtube.com https://myrthos.goatcounter.com/count https://myrthos.net; \
             manifest-src 'self'; \
             media-src 'self'; \
             form-action 'self'; \
@@ -75,3 +71,19 @@
     port = 8888
     publish = "public"
     autoLaunch = false
+
+# toml-docs-start plugins
+[[plugins]]
+    package = "@gethinode/netlify-plugin-dartsass"
+
+[[plugins]]
+    package = "netlify-plugin-hugo-cache-resources"
+	[plugins.inputs]
+	# Redirected in exampleSite/config/_default/hugo.toml
+	# srcdir = ""
+
+[[plugins]]
+    package = "@netlify/plugin-lighthouse"
+    # [plugins.inputs]
+    # output_path = "reports/lighthouse.html"
+# toml-docs-end plugins
