@@ -30,6 +30,7 @@
 {{- if site.Params.navigation.fixed }}{{ $navbarOffset = site.Params.navigation.offset | default "4em" }}{{ end }}
 {{- $vars := dict 
     "theme-font"              (default "Inter" site.Params.style.themeFont)
+    "font-size-base"          (default "1rem" site.Params.style.fontSizeBase)
     "primary"                 (default "#007bff" site.Params.style.primary)
     "secondary"               (default "#6c757d" site.Params.style.secondary)
     "success"                 (default "#198754" site.Params.style.success)
@@ -48,19 +49,21 @@
 {{- $options := (dict "transpiler" $transpiler "targetPath" $target "enableSourceMap" (not hugo.IsProduction) "vars" $vars) -}}
 {{- $bundle := partial "utilities/bundle" (dict "match" $source "filename" (printf "scss/bundle-%d.scss" now.UnixNano) "modules" $modules "basepath" "scss" "debugging" site.Params.debugging.showSCSS) -}}
 
-{{- $css := $bundle | resources.ExecuteAsTemplate $target . | toCSS $options -}}
+{{- if gt ($bundle.Content | len) 0 }}
+    {{- $css := $bundle | resources.ExecuteAsTemplate $target . | toCSS $options -}}
 
-{{ if $core }}
-    {{- partial "head/icons.html" (dict "css" $css) -}}
-{{ end }}
-{{- if site.Params.style.purge -}}
-    {{- $post_options := dict "config" "config" -}}
-    {{- $css = $css | resources.PostCSS $post_options -}}
-{{- end -}}
+    {{ if $core }}
+        {{- partial "head/icons.html" (dict "css" $css) -}}
+    {{ end }}
+    {{- if site.Params.style.purge -}}
+        {{- $post_options := dict "config" "config" -}}
+        {{- $css = $css | resources.PostCSS $post_options -}}
+    {{- end -}}
 
-{{- if not hugo.IsProduction -}}
-    <link rel="stylesheet" href="{{ if $absoluteURL }}{{ $css.Permalink }}{{ else }}{{ $css.RelPermalink }}{{ end }}">
-{{- else -}}
-    {{- $css = $css | fingerprint | resources.PostProcess -}}
-    <link rel="stylesheet" href="{{ if $absoluteURL }}{{ $css.Permalink }}{{ else }}{{ $css.RelPermalink }}{{ end }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+    {{- if not hugo.IsProduction -}}
+        <link rel="stylesheet" href="{{ if $absoluteURL }}{{ $css.Permalink }}{{ else }}{{ $css.RelPermalink }}{{ end }}">
+    {{- else -}}
+        {{- $css = $css | fingerprint | resources.PostProcess -}}
+        <link rel="stylesheet" href="{{ if $absoluteURL }}{{ $css.Permalink }}{{ else }}{{ $css.RelPermalink }}{{ end }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+    {{- end -}}
 {{- end -}}
