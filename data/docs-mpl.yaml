@@ -1,4 +1,5 @@
 # This file holds all menu entries for the docs sidebar
+# cSpell:ignore Redund mstyle
 
 - title: Introduction
   pages:
@@ -6,7 +7,22 @@
     - title: Installation
     - title: Usage
 
-- title: Section 1
+- title: Analog
   pages:
-    - title: Page 1
-    - title: Page 2
+    - title: ADC {{< mstyle "small" >}}Analog to Digital Converter{{< /mstyle >}}
+    - title: CMP {{< mstyle "small" >}}Comparator{{< /mstyle >}}
+    - title: DAC {{< mstyle "small" >}}Digital to Analog Converter{{< /mstyle >}}
+    - title: FVR {{< mstyle "small" >}}Fixed Voltage Regulator{{< /mstyle >}}
+    - title: TMP {{< mstyle "small" >}}Temperature Indicator{{< /mstyle >}}
+
+- title: Peripheral
+  pages:
+    - title: CLC {{< mstyle "small" >}}Configurable Logic Cell{{< /mstyle >}}
+    - title: CLK {{< mstyle "small" >}}Clock Circuitry{{< /mstyle >}}
+    - title: CLR {{< mstyle "small" >}}Clock Reference{{< /mstyle >}}
+    - title: INT {{< mstyle "small" >}}Interrupts{{< /mstyle >}}
+    - title: IOC {{< mstyle "small" >}}Interrupt on Change{{< /mstyle >}}
+    - title: NVM {{< mstyle "small" >}}Non Volatile Memory{{< /mstyle >}}
+    - title: PER {{< mstyle "small" >}}Peripheral{{< /mstyle >}}
+    - title: PWR {{< mstyle "small" >}}Power Savings{{< /mstyle >}}
+    - title: WDT {{< mstyle "small" >}}Watchdog Timer{{< /mstyle >}}

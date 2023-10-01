@@ -12,7 +12,7 @@ thumbnail:
     origin: Unsplash
     originURL: https://unsplash.com/photos/gJUZjwy2EgE
 ---
-<!-- cSpell:ignore Joost Myrthos Hinode googleanalytics Katex frontmatter catmull opengraph gelicenseerd onder sociale borderless subdir shortcode hugolib errorf shortcodes lastmod Alexandre Debiève mimage lightbox mgallery webp navgrey navshort goatcounter publishdate pubdate mpagination -->
+<!-- cSpell:ignore Joost Myrthos Hinode googleanalytics Katex frontmatter catmull opengraph gelicenseerd onder sociale borderless subdir shortcode hugolib errorf shortcodes lastmod Alexandre Debiève mimage lightbox mgallery webp navgrey navshort goatcounter publishdate pubdate mpagination plainify urlize -->
 
 The foundation of this site, besides Hugo, is {{< link "https://github.com/gethinode/hinode" >}}Hinode{{< /link >}}. This post provides an overview of the changes that were made to the Hinode theme, to get to the current design of this site. Obviously the information in this blog is very specific for this site, but if there is something of interest with respect to the layout on this site, it should be described here.
 
@@ -862,6 +862,48 @@ and
 
 Note that the names should be identical to the folder structure used, where a `-` in the folder name can be replaced by a space in the yaml files. Also capitalization is ignored.
 
+### Support HTML in title
+
+HTML support can be added to the title as it is being used in the yaml file mentioned before. So it would be possible to do something like this:
+
+```yaml
+- title: Section1
+  pages:
+    - title: Chapter<sup>1</sup>
+    - title: Chapter<sub<2</sub>
+
+- title: Section2
+  pages:
+    - title: Chapter <em>21</em>
+    - title: Chapter 22
+```
+
+To make this possible the partial `layouts/partials/assets/sidebar.html` needs to be modified.
+
+Replace the line:
+
+```go-html-template
+{{- $doc_slug := $title | urlize -}}
+```
+
+with:
+
+```go-html-template
+{{- $doc_slug := $title | plainify | urlize -}}
+```
+
+And replace the two occurrences of:
+
+```go-html-template
+{{ $title }}
+```
+
+with:
+
+```go-html-template
+{{ $title | safeHTML }}
+```
+
 ### Enable thumbnail defined in frontmatter
 
 By default, thumbnail images that are defined in the frontmatter of the page are not shown on the page when `layout` is set to `docs`. To give the documentation section the same look and feel as the rest of the site, this has been enabled as described below.
@@ -1157,4 +1199,45 @@ with:
                                                              "tooltips" "no"
                                                              "positions" 4) }}
 </div>
+```
+
+## Add extra word-break options for Table of Contents
+
+The table of contents, at the right hand side currently wraps long text on a space and a hyphen. For showing functions properly in the table of contents, I also needed a break on an underscore `_` and a parenthesis `(`.  
+This has been made configurable per page and the code in `layouts/partials/assets/toc.html` needs to be completely replaced with the following:
+
+```go-html-template
+{{ $items := len (findRE "<li.*?>(.|\n)*?</li>" .TableOfContents) -}}
+{{ if (gt $items 1) -}}
+    <div class="toc toc-sidebar mb-5 my-md-0 ps-xl-3 mb-lg-5 p-3 text-body-secondary sticky-top text-break text-indent">
+        <strong class="d-block h6 my-2 pb-2 border-bottom">{{ T "toc" }}</strong>
+        {{ $toc := .TableOfContents }}
+        {{ if .Params.tocBreakUnderscore }}
+            {{ $toc = replace $toc "_" "_<wbr>" | safeHTML }}
+        {{ end }}
+        {{ if .Params.tocHideParenthesis }}
+            {{ $toc = replaceRE `\(.*?\)` "" $toc | safeHTML }}
+        {{ else if .Params.tocBreakParenthesis }}
+            {{ $toc = replace $toc "(" "<wbr>(" | safeHTML }}
+        {{ end }}
+        {{ $toc }}
+    </div>
+{{ end -}}
+```
+
+This will add the following options that can be set to true or false (default) in the frontmatter of a page:
+
+- `tocBreakUnderscore`
+  If true, will break the word also at an underscore `_`.
+- `tocBreakParenthesis`
+  If true, will break the word also at an opening parenthesis `(`.
+- `tocHideParenthesis`
+  If true, will remove everything within an opening `(` and closing parenthesis `)`, including the opening and closing parenthesis. Additionally, the `tocBreakParenthesis` parameter is ignored.
+
+Also the lines that wrap will be indented. For this the following class definition is to be added to `assets/scss/theme.scss`:
+
+```css
+.text-indent {
+    text-indent: -6px;
+}
 ```

@@ -59,7 +59,7 @@
     {{- $href := .href -}}
     {{- $data := .menu -}}
 
-    {{- $doc_slug := $title | urlize -}}
+    {{- $doc_slug := $title | replaceRE "{{<.+?>}}" "" | urlize -}}
     {{- $href := or $href (printf "%s/" (relLangURL (path.Join $baseURL $doc_slug))) -}}
     {{- $active := eq (strings.TrimSuffix "/" $page.RelPermalink) (strings.TrimSuffix "/" $href) -}}
 
@@ -71,7 +71,7 @@
                 <li>
                     {{ $class := "sidebar-item text-decoration-none rounded" }}
                     {{ if $active }}{{ $class = printf "%s active" $class }}{{ end }}
-                    {{ $link := partial "utilities/link.html" (dict "destination" $href "text" $title "class" $class "page" $page) }}
+                    {{ $link := partial "utilities/link.html" (dict "destination" $href "text" ($title | $page.RenderString) "class" $class "page" $page) }}
                     {{ if $link }}
                         {{ print $link | safeHTML }}
                     {{ else }}
@@ -82,9 +82,10 @@
         </li>
     {{ else }}
         <li>
+
             {{ $class := "sidebar-item text-decoration-none rounded small" }}
             {{ if $active }}{{ $class = printf "%s active" $class }}{{ end }}
-            {{ $link := partial "utilities/link.html" (dict "destination" $href "text" $title "class" $class "page" $page) }}
+            {{ $link := partial "utilities/link.html" (dict "destination" $href "text" ($title | $page.RenderString) "class" $class "page" $page) }}
             {{ if $link }}
                 {{ print $link | safeHTML }}
             {{ else }}
